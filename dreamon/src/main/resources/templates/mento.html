@@ -10,62 +10,67 @@
 
 <h1>WebSocket Chat</h1>
 
-<form id="message-form">
+<!--<form id="message-form" method="post">-->
+<div>
     <label for="message-input">Message:</label>
     <input type="text" id="message-input" placeholder="Enter a message">
     <button type="submit" onclick="sendMessage()">Send</button>
-</form>
-
+<!--</form>-->
+</div>    
 <ul id="messages">
-    <!-- Messages will be inserted here -->
+    Messages will be inserted here
 </ul>
 
-<script>
 
+
+    </body>
+</html>
+<script>
+alert("?");
     var stompClient = null;
 
     function connect() {
+        
         var socket = new SockJS('/websocket');
         stompClient = Stomp.over(socket);
 
         stompClient.connect({}, function (frame) {
+            
             console.log('Connected: ' + frame);
             stompClient.subscribe('/topic/messages', function (message) {
+            
                 showMessage(JSON.parse(message.body).message);
+
             });
         });
     }
 
+    //연결종료
     function disconnect() {
+
         if (stompClient !== null) {
+            
             stompClient.disconnect();
         }
-        console.log("Disconnected");
+        
+        //console.log("Disconnected");
     }
 
-    function sendMessage(e) {
-        console.log(e);
-       // e.preventDefault();
-        
+    //메시지 보내기.
+    function sendMessage() {
+
         var message = document.getElementById('message-input').value;
-        
-        alert("send data : " + message);
-        //stompClient.send("/app/send/message", {}, JSON.stringify({'message': message}));
         stompClient.send("/app/send/message", {}, JSON.stringify({'message': message}));
-        alert("send dataff : " + message);
     }
 
+    //메시지 출력.
     function showMessage(message) {
+        
         var messages = document.getElementById('messages');
         var li = document.createElement('li');
-        li.appendChild(document.createTextNode(message));
+            li.appendChild(document.createTextNode(message));
         messages.appendChild(li);
     }
 
     connect();
-
-    
 </script>
-
-</body>
-</html>
