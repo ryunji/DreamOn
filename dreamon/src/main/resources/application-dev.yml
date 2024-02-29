@@ -6,7 +6,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc.mariadb://db.newlecture.com/mayodb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mariadb://db.newlecture.com:3306/mayodb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: mayo
     password: 240219
 
@@ -14,8 +14,8 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
-  mapper-locations: mappers/*.Mapper.xml
-  type-aliases-package: kor.co.mayo.dreamon.entity 
+  mapper-locations: mappers/*.xml                     #*Mapper.xml
+  type-aliases-package: kr.co.mayo.dreamon.entity 
 
 #4.로그설정
 logging:

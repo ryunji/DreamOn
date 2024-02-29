@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,6 +39,38 @@
         </div>
     </header>
     <main>
+        <section class="menu-list">
+            <h1 class="d:none">메뉴 검색 목록</h1>
+            <div>
+                <section class="menu-filter">
+                    <h1>Rland Menu<span class="d:none">검색</span></h1>
+            
+                    <nav class="category-filter">
+                        <h1 class="d:none">카테고리 검색 메뉴 목록</h1>
+                        <ul>
+                            <li><a class="sm:deco current md:deco sm:icon-filter_list" href="">111전체메뉴</a></li>
+                            <li th:each="c:${categories}">
+                                <a class="d:none md:d:inline" href="" th:text="${c.name}">커피</a>
+                            </li>
+                           
+                        </ul>
+                    </nav>
+                    <section class="query-filter">
+                        <h1 class="d:none">이름 검색 폼</h1>
+                        <form>
+                            <fieldset>
+                                <legend class="d:none">이름 검색</legend>
+                                <input type="text" placeholder="메뉴 검색">
+                                <button class="icon icon-find">검색</button>
+                            </fieldset>
+                        </form>
+                    </section>
+                </section>
+                </div>
+            </section>    
+        
+        
+        
         <section class="unique-menu">
             <h1 class="title d:none md:d:block">알랜드만의 특별함</h1>
             <div class="list">
