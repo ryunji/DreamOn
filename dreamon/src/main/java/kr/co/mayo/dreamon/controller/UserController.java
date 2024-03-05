@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.mayo.dreamon.entity.Category;
+import kr.co.mayo.dreamon.selenium.CrawlingExample;
 import kr.co.mayo.dreamon.service.CategoryService;
 
 @Controller
@@ -40,6 +41,9 @@ public class UserController {
     @GetMapping("home")
     public String home(Model model){
 
+
+        CrawlingExample ex = new CrawlingExample();
+System.out.println("어떻게 실행하는겨");
         //17Line에 /user/signin으로 해서 다음과 같은 에러 발생
         //org.thymeleaf.exceptions.TemplateInputException: Error resolving template [/user/signin], template might not exist or might not be accessible by any of the configured Template Resolvers
         System.out.println("홈화면 진입");

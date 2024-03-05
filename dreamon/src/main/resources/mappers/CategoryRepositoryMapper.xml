@@ -7,7 +7,7 @@
 <mapper namespace="kr.co.mayo.dreamon.repository.CategoryRepository">
 
   <select id="findAll" resultType="Category"> 
-	  SELECT  NAME name
+	  SELECT  NAME
 	    FROM  BRAND_CATEGORY
   </select>
 </mapper>
