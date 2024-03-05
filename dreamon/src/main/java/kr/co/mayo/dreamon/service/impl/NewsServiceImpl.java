@@ -27,15 +27,18 @@ public class NewsServiceImpl implements NewsService{
     public void saveNewNewsData(List<CrawlingDTO> list) {
       
         for(int i = 0; i < list.size(); i++){
-            
+            System.out.println("1");
             CrawlingDTO temp = list.get(i);
             Map map = new HashMap(); 
-                map.put("year", 2024);
-                map.put("title", "ITEM");
-                map.put("content", "asdfasdf");
-                 map.put("newsCategoryId", 4);
 
-                 repository.saveNewNewsData(map);
+            System.out.println("2");
+                map.put("year",    2024);
+                map.put("title",   temp.getTitle());
+                map.put("summary", temp.getSummary());
+                map.put("newsCategoryId", 4);
+                map.put("idxNo", temp.getIdxNo());
+
+                repository.saveNewNewsData(map);
         }
     }
 

@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CrawlingDTO {
     
+    private String title;
+    private String summary;
+    private String idxNo;
     private String data;
     private String img;
     private List<CrawlingDTO> list;

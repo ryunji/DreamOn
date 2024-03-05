@@ -7,14 +7,16 @@
 <mapper namespace="kr.co.mayo.dreamon.repository.NewsRepository">
 
   <insert id="saveNewNewsData"> 
-	  INSERT INTO NEWS ( YEAR
+	  INSERT INTO NEWS ( IDX_NO
+                     , YEAR
                      , TITLE
-                     , CONTENT
+                     , SUMMARY
                      , REG_DATE
                      , NEWS_CATEGORY_ID)
-               VALUES( #{year}
+               VALUES( #{idxNo}
+                     , #{year}
                      , #{title}
-                     , #{content}
+                     , #{summary}
                      , now()
                      , #{newsCategoryId}
                      )
