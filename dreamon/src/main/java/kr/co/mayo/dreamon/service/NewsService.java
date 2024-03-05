@@ -7,6 +7,7 @@ import kr.co.mayo.dreamon.entity.News;
 
 public interface NewsService {
  
-    List<News> getNewsList();                           //창업 뉴스 조회
+    //List<News> getNewsList();                           //창업 뉴스 조회
     void saveNewNewsData(List<CrawlingDTO> list);
+    List<News> findAll();
 }

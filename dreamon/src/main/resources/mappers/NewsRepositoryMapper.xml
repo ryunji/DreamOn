@@ -6,6 +6,11 @@
 <!-- 구현하고자 하는 인터페이스의 전체 경로와 인터페이스 명을 네임스페이스에 적는다. -->  
 <mapper namespace="kr.co.mayo.dreamon.repository.NewsRepository">
 
+  <select id="getNewsList" resultType="News">
+    SELECT *
+      FROM NEWS
+  </select>
+  
   <insert id="saveNewNewsData"> 
 	  INSERT INTO NEWS ( IDX_NO
                      , YEAR

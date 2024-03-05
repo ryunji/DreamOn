@@ -18,20 +18,23 @@ public class NewsServiceImpl implements NewsService{
     @Autowired
     private NewsRepository repository;
     @Override
-    public List<News> getNewsList() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNewsList'");
+    public List<News> findAll() {
+
+        List<News> list = repository.getNewsList();
+        return list;
     }
 
     @Override
     public void saveNewNewsData(List<CrawlingDTO> list) {
       
         for(int i = 0; i < list.size(); i++){
-            System.out.println("1");
+
             CrawlingDTO temp = list.get(i);
             Map map = new HashMap(); 
 
-            System.out.println("2");
+
+                //idxNo 중복 체크
+                //repository.idxNoDuplicateCheck(map);
                 map.put("year",    2024);
                 map.put("title",   temp.getTitle());
                 map.put("summary", temp.getSummary());
