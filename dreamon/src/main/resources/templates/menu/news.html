@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="/css/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/newtil-css@0.1.25/dist/style.css" />
+<!-- <link href="/css/reset.css" rel="stylesheet" type="text/css"> -->
     <link href="/css/root.css" rel="stylesheet" type="text/css">
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <link href="/css/icon.css" rel="stylesheet" type="text/css">
@@ -108,24 +109,54 @@
         </dl>
     </section>
     
-    <seciton>
-
+    <seciton class="m:5">
         <h1 class="d:none">페이저</h1>
-        <ul style="display: flex; justify-content: center;"
-            th:with="page=${param.p} eq null? 1 : ${{param.p}}
-                    , startnum=1 
-                    , lastnum=1">
-            <li>
-                <a th:if="${page} lt 6"><<</a>
-                <a th:if="${page} ge 6"><</a>
-            </li>
+        <ul class="n-pager" style="display: flex; justify-content: center;"
+        th:with="page=${param.p} eq null? 1 : ${{param.p}}
+        , floatnum=(${page}-1)/5
+        , intnum=${T(java.lang.Math).floor(floatnum)}
+        , temp=(${page}-1)/5
+        , startnum=${T(java.lang.Math).floor(temp)}*5+1
+        , temp1=${count/6}
+        , temp2=${count} mod 6 > 0 ? ${count} / 6 + 1 : ${count} / 6
+        , lastnum1=${T(java.lang.Math).floor(temp1)}+0
+        , lastnum2=${count} mod 6 > 0 ? ${count div 6}+1 : ${count div 6}
+        , lastnum=${count}  mod 6 > 0 ? ${temp1} + 1 : ${temp1} + 0
+        ">                                                   <!-- 파라미터 두개 이상 사용 가능. -->
+
+        <li>
+            <a    href="list?p=1"
+                th:href="@{news(p=1)}">
+                &#171;
+            </a>
+            <a
+                th:href="${{page}} eq 1 ? @{news(p=${page})} : @{news(p=${page}-1)}">
+                &lt;
+            </a>
+        </li>
+
+        <li
+            th:each="n : ${#numbers.sequence(startnum, startnum+4)}"
+            th:class="${{param.p}} eq ${n} ? active : ''" >
             
-                    <li th:each="n : ${#numbers.sequence(1, 5)}">
-                    <a th:text="${n}">1</a>
-            </li>
+            <span th:if="${n} ge ${lastnum}" th:text="${n}">1</span>
+                
+            <a th:if="${n} le ${lastnum}" href="list?p=1"
+                th:href="@{news(p=${n})}"
+                th:text="${n}">1
+            </a>
+        </li>
+
+ <li>
+     <span th:if="${lastnum} lt ${startnum+5}">다음></span>
+         <a  
+         href="list?p=6" 
+         th:if="${lastnum} ge ${startnum+5}" 
+         th:href="@{list(p=${startnum}+5)}">다음>>
+     </a>
+            </li> 
         </ul>
     </seciton>
-
 
     <footer class="footer">
         <section>

@@ -43,12 +43,15 @@ public class UserController {
         //17Line에 /user/signin으로 해서 다음과 같은 에러 발생
         //org.thymeleaf.exceptions.TemplateInputException: Error resolving template [/user/signin], template might not exist or might not be accessible by any of the configured Template Resolvers
         
-        List<News> news = newsService.findAll();
+        List<News> news = newsService.findAll(page);
+
+        int newsCnt = newsService.getNewsCnt();
+        System.out.println("1.news count : " + newsCnt);
         model.addAttribute("news", news);
+        model.addAttribute("count", newsCnt);
         System.out.println("창업 뉴스 리스트 화면");
         return "menu/news";
     }
-
 
     //2.에디터 호출화면
     @GetMapping("input")
@@ -65,7 +68,7 @@ public class UserController {
 
 
         CrawlingExample ex = new CrawlingExample();
-System.out.println("어떻게 실행하는겨");
+
         //17Line에 /user/signin으로 해서 다음과 같은 에러 발생
         //org.thymeleaf.exceptions.TemplateInputException: Error resolving template [/user/signin], template might not exist or might not be accessible by any of the configured Template Resolvers
         System.out.println("홈화면 진입");

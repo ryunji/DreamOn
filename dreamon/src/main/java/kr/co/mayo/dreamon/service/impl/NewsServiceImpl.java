@@ -18,9 +18,11 @@ public class NewsServiceImpl implements NewsService{
     @Autowired
     private NewsRepository repository;
     @Override
-    public List<News> findAll() {
+    public List<News> findAll(Integer page) {
 
-        List<News> list = repository.getNewsList();
+        int size = 6;
+        int offset = (page-1)*size;
+        List<News> list = repository.getNewsList(offset, size);
         return list;
     }
 
@@ -32,17 +34,27 @@ public class NewsServiceImpl implements NewsService{
             CrawlingDTO temp = list.get(i);
             Map map = new HashMap(); 
 
-
                 //idxNo 중복 체크
-                //repository.idxNoDuplicateCheck(map);
-                map.put("year",    2024);
-                map.put("title",   temp.getTitle());
-                map.put("summary", temp.getSummary());
-                map.put("newsCategoryId", 4);
-                map.put("idxNo", temp.getIdxNo());
-
-                repository.saveNewNewsData(map);
+                String newIdxNo = temp.getIdxNo();
+                System.out.println("1.newIdxNo : " + newIdxNo);
+                int checkCnt = repository.checkDupNewsData(Integer.parseInt(newIdxNo));
+                if(checkCnt == 0){
+                    
+                    map.put("year",           2024);
+                    map.put("title",          temp.getTitle());
+                    map.put("summary",        temp.getSummary());
+                    map.put("newsCategoryId", 4);
+                    map.put("idxNo",          newIdxNo);
+                    repository.saveNewNewsData(map);
+                }
         }
+    }
+
+    @Override
+    public int getNewsCnt() {
+       
+        int newsCnt = repository.getNewsCount();
+        return newsCnt;
     }
 
    

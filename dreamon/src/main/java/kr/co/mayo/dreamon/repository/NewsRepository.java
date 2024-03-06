@@ -12,5 +12,7 @@ import kr.co.mayo.dreamon.entity.News;
 public interface NewsRepository {
     
     void saveNewNewsData(Map map);
-    List<News> getNewsList();
+    List<News> getNewsList(int offset, int size);
+    int getNewsCount();
+	int checkDupNewsData(int inewIdxNo);
 }
