@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/newtil-css@0.1.25/dist/style.css" />
+<!-- <link href="/css/reset.css" rel="stylesheet" type="text/css"> -->
+     <link href="/css/root.css" rel="stylesheet" type="text/css">
+     <link href="/css/style.css" rel="stylesheet" type="text/css">
+     <link href="/css/icon.css" rel="stylesheet" type="text/css">
+     <link href="/css/button.css" rel="stylesheet" type="text/css">
+	 <link href="/css/heading.css" rel="stylesheet" type="text/css">
+     <link href="/css/util/content.css" rel="stylesheet" type="text/css">
+     <link href="/css/util/box.css" rel="stylesheet" type="text/css">
+     <link href="/css/util/layout.css" rel="stylesheet" type="text/css">
+     <link href="/css/util/form.css" rel="stylesheet" type="text/css">    
+     <link href="/css/components/header.css" rel="stylesheet" type="text/css">
+<!-- <link href="/css/components/menu/card.css" rel="stylesheet" type="text/css">
+     <link href="/css/components/menu/menu-filter.css" rel="stylesheet" type="text/css">
+     <link href="/css/components/menu/basket-status.css" rel="stylesheet" type="text/css"> -->
+<!-- <link href="/css/components/menu/list.css" rel="stylesheet" type="text/css"> -->
+     <link href="/css/components/footer.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <!-- 1.header 부분 : 파셜 fragment 먼트 페이지 쉐어드 insert/replace/include -->
+    <!-- 홈 디렉토리는 templete -->
+    <!-- body 부분만 떼어옴 -->
+    <!--<div th:replace="~{inc/header::.header}"></div>   : body 남길때 이렇게 사용한다.-->
+    <!-- 뒤에 div를 제대로 써주지 않아서 이후 코드가 출력되지 않았음. -->
+    <div th:replace="~{inc/header}"></div>
+
+
+    <div class="d:flex">
+        <div th:replace="~{inc/aside}"></div>
+
+        <!-- 2.main 부분 -->
+    <!-- <div th:replace="~{inc/main::.main}"></div>       -->
+        <div layout:fragment="main"></div>
+    </div>
+
+     <!-- 3.footer 부분 -->
+<!-- <div th:replace="~{inc/footer::.footer}"></div>   -->
+     <div th:replace="~{inc/footer}"></div>
+</body>
+</html>
