@@ -1,0 +1,10 @@
+/* 선택자 우선순위 문제로 다음과 같이 처리 */
+.n-pager .n-page, .n-pager>li > .noHover{
+    cursor: not-allowed;
+}
+
+/* hover 시 처리 */
+.n-pager .n-page, .n-pager> li > .noHover:hover{
+    
+    background-color: var(--color-base-1);
+}
