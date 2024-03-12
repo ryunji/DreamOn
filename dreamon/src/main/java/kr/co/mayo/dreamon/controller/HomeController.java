@@ -2,15 +2,17 @@ package kr.co.mayo.dreamon.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/*@Controller
+@Controller
+@RequestMapping("/")
 public class HomeController {
     
-    @ResponseBody
-    @GetMapping("hello")
-    public String hello(){
 
-        return "hello?";
+    @GetMapping("index")
+    public String index(){
+
+        return "index";
     }
-}*/
+}

@@ -10,5 +10,7 @@ import kr.co.mayo.dreamon.entity.Member;
 public interface MemberRepository {
     
     List<Member> findAll();
+
+    Member findByUsername(String username, String password);
     
 }

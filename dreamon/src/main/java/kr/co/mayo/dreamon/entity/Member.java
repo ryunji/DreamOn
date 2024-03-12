@@ -5,15 +5,17 @@ import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 //회원 클래스
 public class Member {
     
     private long   id;
-    private int    pwd;
+    private String pwd;
     private String korName;
     private String engName;
     private int    phone;
