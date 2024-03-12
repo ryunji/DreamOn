@@ -124,11 +124,10 @@
         , lastnum2=${count} mod 6 > 0 ? ${count div 6}+1 : ${count div 6}
         , lastnum=${count}  mod 6 > 0 ? ${temp1} + 1 : ${temp1} + 0
         ">                                                   <!-- 파라미터 두개 이상 사용 가능. -->
-            <!-- 1.이전 페이지 -->
+            <!-- 1.이전 페이지  -->
             <li>
                 <a    href="list?p=1"
-                    th:href="@{news(p=1)}">
-                    &#171;
+                    th:href="@{news(p=1)}">&#171;           
                 </a>
                 <a
                     th:href="${{page}} eq 1 ? @{news(p=${page})} : @{news(p=${page}-1)}">
@@ -141,7 +140,7 @@
                 th:each="n : ${#numbers.sequence(startnum, startnum+4)}"
                 th:class="${{param.p}} eq ${n} ? active : ''" >
                 
-                <span th:if="${n} ge ${lastnum}" th:text="${n}">1</span>
+                <!-- <span th:if="${n} ge ${lastnum}" th:text="${n}">1</span> -->
                     
                 <a th:if="${n} le ${lastnum}" href="list?p=1"
                     th:href="@{news(p=${n})}"
@@ -153,17 +152,18 @@
             <!-- >>는 현재 페이지 + 4가 마지막 페이지보다 크면 눌리지 않게 처리해야 한다. -->
             <li>
                 <!-- <span th:if="${startnum+5} ge ${lastnum}">></span> -->
-                <a th:href ="@{news(p=${page}+1)}"
-                   th:onclick="${{page}} eq ${{lastnum}}? return false : ''"
+                <a 
+                   th:href="${{page}} eq ${{lastnum}}? '#': @{news(p=${{page}}+1)}"
+                  
                    th:class="${{page}} eq ${{lastnum}}? noHover : ''"
                 >>
                 </a>    
                 <!-- 다음 페이지 클릭, ex) 1을 클릭하면 2로 -->
                 <a  
                     href="list?p=6"
-                    th:class  ="${{page}} eq ${{lastnum}}? noHover : ''"
-                    th:onclick="${{page}} eq ${{lastnum}}? return false : ''"
-                    th:href   ="${{page}} eq ${{lastnum}}? '#'     : '@{news(p=${lastnum})}'">>>
+                    th:class="${{page}} eq ${{lastnum}}? noHover: ''"
+                   
+                    th:href="${{page}} eq ${{lastnum}}? '#': @{news(p=${{lastnum}})}">>>
                 </a>
                 <!-- th:class="${{page}} eq ${{lastnum}}? n : d" -->
             </li> 
