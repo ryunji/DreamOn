@@ -14,10 +14,12 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.co.mayo.dreamon.entity.Category;
 import kr.co.mayo.dreamon.entity.Member;
+import kr.co.mayo.dreamon.entity.Menu;
 import kr.co.mayo.dreamon.entity.News;
 import kr.co.mayo.dreamon.selenium.CrawlingExample;
 import kr.co.mayo.dreamon.service.CategoryService;
 import kr.co.mayo.dreamon.service.MemberService;
+import kr.co.mayo.dreamon.service.MenuService;
 import kr.co.mayo.dreamon.service.NewsService;
 
 @Controller
@@ -32,10 +34,17 @@ public class UserController {
 
     @Autowired
     private CategoryService categoryService;
+    
+    @Autowired
+    private MenuService menuService;
    
     @GetMapping("signIn")
-    public String signIn(){
+    public String signIn(Model model){
 
+         //카테고리 가져오는 로직
+         List<Menu> menuList = menuService.findAll();
+         System.out.println("menuList : " + menuList);
+         model.addAttribute("menuList", menuList);
         return "user/signIn";
     }
 
@@ -43,7 +52,8 @@ public class UserController {
     @PostMapping("signIn")
     public String signIn(String username      //input의 name
                        , String password
-                       , HttpServletResponse response){
+                       , HttpServletResponse response
+                       , Model model){
 
         boolean valid = memberservice.validate(username, password);
         if(!valid)
@@ -59,6 +69,10 @@ public class UserController {
 
         response.addCookie(uidCookie);
         response.addCookie(usernameCookie);
+
+
+
+       
 
 
         //17Line에 /user/signin으로 해서 다음과 같은 에러 발생

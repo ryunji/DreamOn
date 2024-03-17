@@ -10,5 +10,8 @@ import lombok.Data;
 public class Menu {
     
 
-    private String category;
+    //private String category;
+    String id;
+    String korName;
+    
 }

@@ -17,10 +17,11 @@
     --rgb-base-13: 0, 0, 0;    
     --rgb-black: 0, 0, 0;
     
-    --rgb-main-1: 216, 98, 89;
+    --rgb-main-1: 216, 98, 89;  
     --rgb-main-2: 144, 86, 52;
-    --rgb-main-3: 94, 40, 8;
-    --rgb-main-4: 37, 20, 4;
+    --rgb-main-3: 120, 78, 208;
+    /* --rgb-main-4: 37, 20, 4;                 */
+    /*--rgb-main-5: 120, 78, 208;                기본 컬러 : 보라색 */
 
     --rgb-accent-1: 51, 77, 207;
 
@@ -45,6 +46,9 @@
     --color-main-2: rgb(var(--rgb-main-2));
     --color-main-3: rgb(var(--rgb-main-3));
     --color-main-4: rgb(var(--rgb-main-4));
+    --color-main-5: rgb(var(--rgb-main-5));
+
+    /* --color-main-5: rgb(120,78,208); */
 
     --color-accent-1: rgb(var(--rgb-accent-1));
 
