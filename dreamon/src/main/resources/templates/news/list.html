@@ -2,34 +2,50 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorate="inc/layout"
->
+      layout:decorate="inc/layout">
     <main layout:fragment="main">
         
+        <!-- 19강 : 헤더외에 다른 부수적인 정보가 들어갈 때, 컨텐트 말고(ex : 전체명소, 더 보기 )-->
+        <!-- 헤더는 섹션 태그가 아니며 여기는 헤더 영역이에요를 알리는 것, header의 섹션은 body : HTML 19강-->
+        <!-- 영상 기준에서 Rland는 헤더 영역에 있었음.
+             내 코드 상에서는 Mayo가 제일 큰 제목이 될듯. -->
+        <!-- 헤더라는 태그는 섹션 마다 가지고 있을 수 있음. -->     
         <header>
-            <h1 class="text-align:center">뉴스 목록</h1>
-            <p class="text-align:center">2개 이상의 사이트에서 발췌한 창업 뉴스를 제공해드립니다.</p>
+            <h1 class="text-align:center">뉴스 목록</h1>                                            <!-- 문서 전체의 제목 -->
+            <p class="text-align:center">2개 이상의 사이트에서 발췌한 창업 뉴스를 제공해드립니다.</p>   <!-- P : 블럭 태그 -->
         </header>
+        
         <!-- div : card list(카드 아이템을 감싸고 있는 전체 영역) -->
         <div> 
-            
-            <div class="align-items:center">
-                <input type="radio">제목 
-                <input type="radio">제목 + 컨텐츠
+            <div class="d:flex justify-content-between">
+                <div>
+                    <input type="radio" name="filter">기사(전체 909건)
+                </div>
+                <!-- 뉴스 검색 폼 : 검색 필터 영역 -->
+                <div><input type="radio" name="filter">제목 
+                    <input type="radio" name="filter">제목 + 컨텐츠
+                </div>    
             </div>
-            <section class="n-item n-item-type:outline-box"
-            th:each="news : ${newsList}">
-               <h1>
-                <a  class="font-size:3
-                           font-weight:3"
-                    href="https://www.newsnjob.com/news/articleView.html?idxno=25495" 
-                    th:text="${news.title}"
-                    target="_top">인공지능(AI) 분야 K-창업기업(스타트업), 오픈AI가 키운다</a>
+
+            <!-- 제목과 컨텐츠를 묶어주는 태그가 섹션태그 -->
+            <article class="n-item n-item-type:outline-box"
+                     th:each="news : ${newsList}">
+                
+                <!-- 표, 폼, 문장, 목록에는 제목을 달아주도록 한다.
+                     즉 다섯개의 컨텐츠가 아닌 녀석에는 제목을 달아주지 않는다. HTML 13강 -->
+                <h1>
+                    <a  class="font-size:3
+                               font-weight:3"
+                        href="https://www.newsnjob.com/news/articleView.html?idxno=25495" 
+                        th:text="${news.title}"
+                        target="_top">
+                        뉴스 제목
+                    </a>
                </h1>
                <p class="font-size:1">
-                    중소벤처기업부(장관 오영주)는 지난 3월 14일(현지 시간) 미국 실리콘밸리에 위치한 국제적(글로벌) 인공지능(AI) 선도 기업 오픈AI 본사에서 ‘K-Startup & OpenAI Matching Day in US’ 행사를 개최하고, 2024년 국제적(글로벌) 기업 협업 프로그램에 참여하여 OpenAI와 협업을 진행할 창업기업(스타트업)들의 최종 발표 평가를 진행했다. 국내 예선에서 합격을 거머쥔 인공지능(AI) 분야 유망 스타트업 14개사가 이번에는 미국 오픈AI 본사 임원진 앞에서 다시 무대에 올랐다. 임정욱 중소벤처기업부 창                
+                    뉴스 내용
                </p>     
-            </section>
+            </article>
         </div>       
     </main>   
 </html>
