@@ -2,16 +2,48 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorate="inc/layout"
+      layout:decorate="inc/layout"
 >
-<head>
-  
-</head>
     <main layout:fragment="main">
         
       
-        <h1>멘토 목록</h1>
-     
+      <h1>멘토 목록</h1>
+      <div class="text-align:center">
+        <input >검색어 입력 </input>
+        <section class="query-filter">
+          <h1 class="d:none">멘토 이름 검색 폼</h1>
+          <form>
+              <fieldset>
+                  <legend class="d:none">이름 검색</legend>
+                  <input type="text" placeholder="멘토 검색">
+                  <button class="icon icon-find">검색</button>
+              </fieldset>
+          </form>
+      </section>
+      </div>
+        <div class="d:flex justify-content-between">
+          
+          <div class="d:flex">
+              검색 결과 : 총
+              <span th:text="${mentoCount}"></span>  
+              명 | 
+              <div class="n-dropdown">
+                <button onclick="openDropDownUl()" aria-expanded="true" class="n-btn n-btn:outline deco deco-size:2 icon:caret_down_bold">선택</button>
+                <ul id="dropdownUl" class="ff aa">
+                  <li>최신등록순</li>
+                  <li>이름순</li>
+                </ul>
+              </div>
+          </div>
+          
+          <!-- 우측 버튼 영역 -->
+          <div>
+            <button type="button" class="n-btn n-btn:filled n-btn_size:2">멘토지원</button>
+          </div>    
+      </div>
+        
+      
+       <!-- 카드 영역-->
         <div class="d:grid
                     grid-auto-flow:row 
                     grid-template-columns:3
@@ -20,7 +52,7 @@
                     "   >
           <div class="n-item n-item:shadow p:0 pb:4 bd-radius:0 max-w:5" th:each="mento : ${mentoList}">
           <div>
-              <img src="/cafe.jpg" class="h:auto w:100p" />
+              <img src="../image/profile/mento1.png" class="h:auto w:100p" />
             </div>
             <div class="mt:4 px:3">
               <div class="n-font:h2 font-weight:3 color:base-8"
@@ -38,4 +70,26 @@
           </div> 
     </div>
     </main>   
-</html>
+  </html>
+  <script>
+    
+    var openDropDownUl = function(){
+
+      var dropdownUl = document.querySelector("#dropdownUl");
+      
+      dropdownUl.classList.toggle("active");
+      
+      //기존에 있던 클래스에 추가로 다른 클래스를 덧붙이는 방식.
+      //dropdownUl.classList.add("active");
+      
+      //기존에 있던 클래스를 현재 대입하는 값으로만 덮어씌움.
+      //dropdownUl.className = "active";                   
+      
+      //24.03.19 한상민 멘토님이 알려주신 콘솔 출력 방법.
+      //console.log(`출력확인 :  ${dropdownUl.className}`);
+    }
+    
+    window.addEventListener("load", function(e){
+        
+    });
+</script>

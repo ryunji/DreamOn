@@ -18,13 +18,16 @@ public class MentoController {
     @Autowired
     private MentoService service;
 
+    //멘토 목록 조회
     @GetMapping("list")
     public String list(Model model){
 
         List<Mento> list = service.findAll();
+        int count = list.size();
 
-
-        model.addAttribute("mentoList", list);
+        System.out.println("멘토 몇명 : " + count);
+        model.addAttribute("mentoList",  list);
+        model.addAttribute("mentoCount", count);
         return "mento/list";
     }
 }
