@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+    
+    <main layout:fragment="main">
+        <section>
+            <h1 class="d:none">멘토등록</h1>
+            <form class="d:flex flex-direction:column">
+                
+                <!-- 1.추가 설명 -->
+                <div>
+                    <span>Share your valuable career experince.</span>
+                </div>
+                
+                <div class="d:flex flex-direction:row">
+                    <!-- 2. 데이터 입력 영역 -->
+                    <div class="d:flex flex-column:row flex-grow:1">
+                        <!-- 2.1.사진 추가 영역 -->             
+                        <section class="n-item suggest-component flex-grow:1" data-v-d288b4e2="">
+                        
+                            <a class="text-align:center"  href="" target="_blank" data-v-d288b4e2="">
+                                
+                                <div class="d:flex flex-direction:column ai:center jc:center height:10p" data-v-d288b4e2="">
+                                    <h1 class="font-size:2" data-v-d288b4e2="">
+                                        프로필 이미지 추가하기
+                                    </h1>    
+                                    <div class="border border-radius:4 w:fit-content p:5 plus" data-v-d288b4e2="">
+                                        <span class="icon icon:plus" data-v-d288b4e2=""></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </section>
+                    </div>
+                    <div class="n-form flex-grow:1">
+                        <!-- <h1 class="n-font:h3 font-weight:3">✏️ 멘토등록</h1> -->
+
+                        <!-- 입력영역 -->
+                        <div>
+                            <label>
+                                <span>이름</span>
+                                <input type="text" placeholder="이름을 작성해주세요"/>
+                            </label>
+                            <label>
+                                <span>한줄소개</span>
+                                <input type="text" placeholder="한줄소개"/>
+                            </label>
+                            <label>
+                                <span>전문분야</span>
+                                <input type="text" placeholder="전문분야"/>
+                            </label>
+                            <label>
+                                <span>경력</span>
+                                <input type="text" placeholder="경력"/>
+                            </label>
+                            <label>
+                                <span>설명</span>
+                                <textarea  type="text" placeholder="설명"></textarea>
+                            </label>
+                        </div>
+                    
+                        <!-- 등록하기 버튼-->
+                        <div>
+                            <button class="n-btn">등록하기</button>
+                        </div>
+                    </div>       
+                </div>  
+            </form>
+        </section>
+    </main>
+</html>

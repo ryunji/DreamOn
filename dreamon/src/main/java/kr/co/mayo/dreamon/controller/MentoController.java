@@ -25,9 +25,14 @@ public class MentoController {
         List<Mento> list = service.findAll();
         int count = list.size();
 
-        System.out.println("멘토 몇명 : " + count);
         model.addAttribute("mentoList",  list);
         model.addAttribute("mentoCount", count);
         return "mento/list";
+    }
+
+    @GetMapping("regist")
+    public String regist(){
+
+        return "mento/regist";
     }
 }
