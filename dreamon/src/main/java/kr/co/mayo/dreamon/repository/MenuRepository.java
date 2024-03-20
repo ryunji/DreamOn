@@ -13,4 +13,5 @@ import kr.co.mayo.dreamon.entity.News;
 public interface MenuRepository {
    
     List<Menu> getMenuList();
+    void insertMember(String korname, String password,  String engname, String phone, String email);
 }

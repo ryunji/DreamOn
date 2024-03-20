@@ -8,6 +8,6 @@ public interface MemberService {
 
     Member getUserId(String username);
 
-    
+    void saveNewMemberInfo(String korname, String password,  String engname, String phone, String email);
     
 }

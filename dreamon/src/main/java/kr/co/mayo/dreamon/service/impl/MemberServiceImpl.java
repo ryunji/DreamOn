@@ -31,5 +31,11 @@ public class MemberServiceImpl implements MemberService{
 
         Member member = repository.findByUsername(username, null);
         return member;
-    }    
+    }
+
+    @Override
+    public void saveNewMemberInfo(String korname, String password, String engname, String phone, String email) {
+        
+        repository.insertMember(korname, password, engname, phone, email);
+    }
 }

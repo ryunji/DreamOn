@@ -29,7 +29,7 @@
               명 | 
               <div class="n-dropdown">
                 <button onclick="openDropDownUl()" aria-expanded="true" class="n-btn n-btn:outline deco deco-size:2 icon:caret_down_bold">선택</button>
-                <ul id="dropdownUl" class="ff aa">
+                <ul id="dropdown-ul" class="">
                   <li>최신등록순</li>
                   <li>이름순</li>
                 </ul>
@@ -71,25 +71,24 @@
     </div>
     </main>   
   </html>
-  <script>
+<script>
+  window.addEventListener("load", function(e){
     
-    var openDropDownUl = function(){
+    var dropdownUl = document.querySelector("#dropdown-ul");
+    dropdownUl.onclick = openDropDownUl;
+    
+    function openDropDownUl(){
 
-      var dropdownUl = document.querySelector("#dropdownUl");
-      
       dropdownUl.classList.toggle("active");
-      
+
       //기존에 있던 클래스에 추가로 다른 클래스를 덧붙이는 방식.
       //dropdownUl.classList.add("active");
-      
+
       //기존에 있던 클래스를 현재 대입하는 값으로만 덮어씌움.
       //dropdownUl.className = "active";                   
-      
+
       //24.03.19 한상민 멘토님이 알려주신 콘솔 출력 방법.
       //console.log(`출력확인 :  ${dropdownUl.className}`);
-    }
-    
-    window.addEventListener("load", function(e){
-        
-    });
+    }    
+  });
 </script>

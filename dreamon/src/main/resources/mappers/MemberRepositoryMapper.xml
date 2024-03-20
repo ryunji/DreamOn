@@ -22,4 +22,24 @@
    <insert id="saveGoogleNewMember">
   INSERT INTO mayodb.MEMBER (PWD, KOR_NAME, ENG_NAME, PHONE, EMAIL, TYPE, JOIN_DATE, WITHDRAWAL_DATE) VALUES ('22222','강윤아','KANG YOON AH', '01030417901', 'V921001@naver.com', 'P', CURRENT_TIMESTAMP(), null);
   </insert> 
+
+  <insert id="insertMember">
+  INSERT INTO mayodb.MEMBER (PWD
+                          , KOR_NAME
+                          , ENG_NAME
+                          , PHONE
+                          , EMAIL
+                          , JOIN_DATE
+                          , TYPE_CATEGORY_ID
+                          , WITHDRAWAL_DATE
+                          ) VALUES 
+                          ( #{password}
+                          , #{korname}
+                          , #{engname}
+                          , #{phone}
+                          , #{email}
+                          , CURRENT_TIMESTAMP()
+                          , '1'
+                          , null)
+  </insert> 
 </mapper>
