@@ -23,32 +23,11 @@ public class GoogleOauthController {
     GoogleLoginService  loginService;
 
     @GetMapping("/code/{registrationId}")
-    public void googleLogin(@RequestParam String code, @PathVariable String registrationId, HttpSession session) {
+    public String googleLogin(@RequestParam String code, @PathVariable String registrationId, HttpSession session) {
         
         loginService.socialLogin(code, registrationId);
 
         //this.gotoMain(session);
-       // return "redirect:/";
+        return "redirect:/";
     }
-
-    public RedirectView gotoMain(HttpSession session) {
-		System.out.println("kakao callback 컨트롤러 접근");
-		
-		
-		RedirectView redirectView = new RedirectView();
-		
-		
-		
-
-		
-		
-		
-		
-		
-		
-		
-		redirectView.setUrl("http://localhost:8082");
-			
-		return redirectView;
-	}
 }

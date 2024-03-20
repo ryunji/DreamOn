@@ -27,7 +27,7 @@ xmlns:th="http://www.thymeleaf.org"
 <body>
     <main layout:fragment="main">
         <section class="login-form">
-            <h1 class="heading-7 text-align:center">Rland Login</h1>
+            <h1 class="heading-7 text-align:center">Mayo Login</h1>
             <form action="signIn" method="post">
                 <fieldset>
                     <legend class="d:none">인증정보</legend>
@@ -39,9 +39,10 @@ xmlns:th="http://www.thymeleaf.org"
                 <div class="mt:5">
                     <button class="btn btn-main w:1" type="submit">로그인</button>
                     <span class="w:1 d:inline-flex justify-content:center mt:3">또는</span>
-                    <a class="btn w:1 mt:3 al" href="">
-                        <span class="deco icon-google icon-size:3 w:1 d:inline-flex justify-content:center">구글 로그인</span></a>
-                </div>
+               <a class="btn w:1 mt:3 al" href="https://accounts.google.com/o/oauth2/auth?client_id=663368504469-j5jg45a0815k4t0co8cj45mjevlr5m88.apps.googleusercontent.com&redirect_uri=http://localhost:8082/login/oauth2/code/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile">
+                        <span class="deco icon-google icon-size:3 w:1 d:inline-flex justify-content:center">구글 로그인</span>
+                    </a>
+
                 <div class="mt:3 d:flex justify-content:center">
                     <a href="">회원가입</a>
                     <a href="" class="bl:1 bc:base-6 bls:solid ml:3 pl:3">비밀번호 찾기</a>
@@ -51,3 +52,20 @@ xmlns:th="http://www.thymeleaf.org"
     </main>
 </body>
 </html>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+    function handleCredentialResponse(response) {
+      console.log("Encoded JWT ID token: " + response.credential);
+    }
+    window.onload = function () {
+      google.accounts.id.initialize({
+        client_id: "YOUR_GOOGLE_CLIENT_ID",
+        callback: handleCredentialResponse
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("buttonDiv"),
+        { theme: "outline", size: "large" }  // customization attributes
+      );
+      google.accounts.id.prompt(); // also display the One Tap dialog
+    }
+</script>

@@ -3,11 +3,14 @@ package kr.co.mayo.dreamon.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import lombok.RequiredArgsConstructor;
 
 @Configuration
 public class WebSecurityConfig {
@@ -33,6 +36,7 @@ public class WebSecurityConfig {
             .logoutSuccessUrl("/index")                                         //로그아웃 처리 후 index 페이지로 이동시킴.
             .permitAll());
 
+            
 		return http.build();
 	}
 
