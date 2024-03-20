@@ -11,4 +11,15 @@
       FROM MEMBER
      WHERE USERNAME = #{username}
   </select>
+
+
+ <select id="getGoogleIdCount">
+    SELECT COUNT(ID)
+      FROM MEMBER
+     WHERE ID = #{googleId}
+  </select> 
+
+   <insert id="saveGoogleNewMember">
+  INSERT INTO mayodb.MEMBER (PWD, KOR_NAME, ENG_NAME, PHONE, EMAIL, TYPE, JOIN_DATE, WITHDRAWAL_DATE) VALUES ('22222','강윤아','KANG YOON AH', '01030417901', 'V921001@naver.com', 'P', CURRENT_TIMESTAMP(), null);
+  </insert> 
 </mapper>

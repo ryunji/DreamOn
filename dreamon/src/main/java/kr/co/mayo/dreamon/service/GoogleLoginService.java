@@ -41,26 +41,40 @@ public class GoogleLoginService {
         System.out.println("userResourceNode = " + userResourceNode);
 
         String id       = userResourceNode.get("id").asText();
-       // Long googleId   = Long.parseLong(id);
+        //Long googleId   = Long.parseLong(id);
         String email    = userResourceNode.get("email").asText();
         String nickname = userResourceNode.get("name").asText();
         System.out.println("id = " + id);
         System.out.println("email = " + email);
         System.out.println("nickname = " + nickname);
 
-        // Member member = new Member();
-        // member.setId(googleId);
-        // member.setEmail(email);
-        // member.setKorName(nickname);
-        // boolean saveYn = saveMember(member);
+        //소셜 로그인으로 이미 가입되어 있는지 확인하는 작업 필요.
+        boolean joinYn = false;//checkJoinYn(googleId);
+        if(!joinYn){
 
+            Member member = new Member();
+            //member.setId(googleId);
+            member.setEmail(email);
+            member.setKorName(nickname);
+            boolean saveYn = saveMember(member);
+        }
     }
+    
+    private boolean checkJoinYn(Long googleId){
 
+        boolean joinYn = false;
+        int joinCnt = repository.getGoogleIdCount(googleId);
+        if(joinCnt > 0)
+            joinYn = true;
+
+        return joinYn;
+    }
     private boolean saveMember(Member member){
 
-        repository.saveGoogleNewMember();
+        repository.saveGoogleNewMember(member);
         return true;
     }
+
    
     private String getAccessToken(String authorizationCode, String registrationId) {
         String clientId = env.getProperty("oauth2." + registrationId + ".client-id");

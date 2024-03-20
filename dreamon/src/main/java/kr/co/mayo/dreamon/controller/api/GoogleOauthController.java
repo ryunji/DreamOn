@@ -26,8 +26,6 @@ public class GoogleOauthController {
     public String googleLogin(@RequestParam String code, @PathVariable String registrationId, HttpSession session) {
         
         loginService.socialLogin(code, registrationId);
-
-        //this.gotoMain(session);
         return "redirect:/";
     }
 }
