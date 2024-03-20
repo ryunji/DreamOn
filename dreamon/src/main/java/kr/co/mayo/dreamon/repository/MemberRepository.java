@@ -12,5 +12,7 @@ public interface MemberRepository {
     List<Member> findAll();
 
     Member findByUsername(String username, String password);
+
+    void saveGoogleNewMember();
     
 }
