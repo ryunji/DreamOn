@@ -1,5 +1,6 @@
 package kr.co.mayo.dreamon.entity;
 
+import java.math.BigInteger;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -14,13 +15,15 @@ import lombok.NoArgsConstructor;
 //회원 클래스
 public class Member {
     
-    private long   id;
-    private String pwd;
-    private String korName;
-    private String engName;
-    private int    phone;
-    private String email;
-    private int    typeCategoryId;
-    private Date   joinDt;
-    private Date   withdrawalDt;
+  //private long   id;
+    private BigInteger id;
+    private String     displayName;
+    private String     name;
+    private String     pwd;
+    private String     phone;
+    private String     email;
+    private String     memberTypeCategoryId;
+    private String     joinTypeCategoryId;
+    private Date       joinDt;
+    private Date       withdrawalDt;
 }

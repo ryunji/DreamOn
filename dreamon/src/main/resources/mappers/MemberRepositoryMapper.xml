@@ -19,8 +19,29 @@
      WHERE ID = #{googleId}
   </select> 
 
-   <insert id="saveGoogleNewMember">
-  INSERT INTO mayodb.MEMBER (PWD, KOR_NAME, ENG_NAME, PHONE, EMAIL, TYPE, JOIN_DATE, WITHDRAWAL_DATE) VALUES ('22222','강윤아','KANG YOON AH', '01030417901', 'V921001@naver.com', 'P', CURRENT_TIMESTAMP(), null);
+  <!-- 구글 -->
+  <insert id="saveGoogleNewMember">
+  INSERT INTO mayodb.MEMBER (   DISPLAY_NAME 
+                              , NAME
+                              , PWD
+                              , PHONE
+                              , EMAIL
+                              , MEMBER_TYPE_CATEGORY_ID
+                              , JOIN_TYPE_CATEGORY_ID
+                              , JOIN_DATE
+                              , WITHDRAWAL_DATE
+                              ) VALUES 
+                              ( #{displayName}
+                              , #{name}
+                              , #{pwd}
+                              , #{phone}
+                              , #{email}
+                              , '1'
+                              , '1'
+                              , CURRENT_TIMESTAMP()
+                              , null
+                              )
+                              
   </insert> 
 
   <insert id="insertMember">

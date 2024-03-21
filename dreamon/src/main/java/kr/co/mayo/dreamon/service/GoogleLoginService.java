@@ -1,5 +1,7 @@
 package kr.co.mayo.dreamon.service;
 
+import java.math.BigInteger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
@@ -33,19 +35,22 @@ public class GoogleLoginService {
         this.env = env;
     }
     public void socialLogin(
+        
         String code, String registrationId) {
         String accessToken = getAccessToken(code, registrationId);
-        System.out.println("accessToken = " + accessToken);
+//System.out.println("accessToken = " + accessToken);
 
         JsonNode userResourceNode = getUserResource(accessToken, registrationId);
-        System.out.println("userResourceNode = " + userResourceNode);
+//System.out.println("userResourceNode = " + userResourceNode);
 
-        String id       = userResourceNode.get("id").asText();
-        //Long googleId   = Long.parseLong(id);
-        String email    = userResourceNode.get("email").asText();
-        String nickname = userResourceNode.get("name").asText();
-        System.out.println("id = " + id);
-        System.out.println("email = " + email);
+        String id             = userResourceNode.get("id").asText();
+        BigInteger bigInteger = new BigInteger(id);
+      //long longValue        = bigInteger.longValue();
+      //Long googleId         = Long.parseLong(id);
+        String email          = userResourceNode.get("email").asText();
+        String nickname       = userResourceNode.get("name").asText();
+        System.out.println("id       = " + id);
+        System.out.println("email    = " + email);
         System.out.println("nickname = " + nickname);
 
         //소셜 로그인으로 이미 가입되어 있는지 확인하는 작업 필요.
@@ -53,9 +58,15 @@ public class GoogleLoginService {
         if(!joinYn){
 
             Member member = new Member();
-            //member.setId(googleId);
-            member.setEmail(email);
-            member.setKorName(nickname);
+                   member.setId(bigInteger);
+                   member.setDisplayName(nickname);
+                   member.setName(nickname);
+                   member.setPwd("");
+                   member.setPhone("");
+                   member.setEmail(email);
+                   member.setMemberTypeCategoryId("1");
+                   member.setJoinTypeCategoryId("1");
+
             boolean saveYn = saveMember(member);
         }
     }
