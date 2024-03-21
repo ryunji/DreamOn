@@ -29,8 +29,8 @@
                               , PWD
                               , PHONE
                               , EMAIL
-                              , MEMBER_TYPE_ID
-                              , JOIN_TYPE_ID
+                              , MEMBER_TYPE_CATEGORY_ID
+                              , JOIN_TYPE_CATEGORY_ID
                               , JOIN_DATE
                               , WITHDRAWAL_DATE
                               ) VALUES 
