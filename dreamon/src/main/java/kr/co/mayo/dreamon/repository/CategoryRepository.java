@@ -10,5 +10,5 @@ import kr.co.mayo.dreamon.entity.Category;
 public interface CategoryRepository {
     
     List<Category> findAll();
-    
+    List<Category> findAllMemberType();  
 }

@@ -7,4 +7,5 @@ import kr.co.mayo.dreamon.entity.Category;
 public interface CategoryService {
     
     List<Category> getList();
+    List<Category> getMemberTypeLsit();
 }

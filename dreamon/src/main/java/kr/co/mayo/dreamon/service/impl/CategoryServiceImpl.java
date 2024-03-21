@@ -25,5 +25,12 @@ public class CategoryServiceImpl implements CategoryService{
         System.out.println("리스트 찍어줘라 : " + list);
         return list;
     }
+
+    @Override
+    public List<Category> getMemberTypeLsit() {
+        
+        List<Category> list = repository.findAllMemberType();
+        return list;
+    }
     
 }

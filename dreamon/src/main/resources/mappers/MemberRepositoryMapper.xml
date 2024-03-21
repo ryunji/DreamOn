@@ -36,22 +36,24 @@
                               , #{pwd}
                               , #{phone}
                               , #{email}
-                              , '1'
-                              , '1'
+                              , 1
+                              , 1
                               , CURRENT_TIMESTAMP()
                               , null
                               )
                               
   </insert> 
 
+  <!-- Mayo 웹 사이트의 회원가입을 통해 가입 시, MEMBER 테이블의 JOIN_TYPE_CATEGORY_ID는 Default 값이 1이므로 주석처리 함. -->
   <insert id="insertMember">
+    /* 퇴직임직원 관련 거래처 정보 카운트 queryId : user.cleanPosco.insertMember*/
     INSERT INTO mayodb.MEMBER ( DISPLAY_NAME 
                               , NAME
                               , PWD
                               , PHONE
                               , EMAIL
                               , MEMBER_TYPE_CATEGORY_ID
-                              , JOIN_TYPE_CATEGORY_ID
+                         <!-- , JOIN_TYPE_CATEGORY_ID -->
                               , JOIN_DATE
                               , WITHDRAWAL_DATE
                               ) VALUES 
@@ -60,8 +62,8 @@
                               , #{password}
                               , #{phone}
                               , #{email}
-                              , '1'
-                              , '1'
+                              , 1
+                         <!-- , 1 -->
                               , CURRENT_TIMESTAMP()
                               , null)
   </insert> 

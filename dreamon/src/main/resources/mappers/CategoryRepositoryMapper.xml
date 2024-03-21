@@ -10,4 +10,10 @@
 	  SELECT  NAME
 	    FROM  BRAND_CATEGORY
   </select>
+
+  <select id="findAllMemberType" resultType="Category"> 
+	  SELECT   ID
+           , NAME
+	    FROM   MEMBER_TYPE_CATEGORY
+  </select>
 </mapper>

@@ -10,7 +10,7 @@
 <body>
     <main layout:fragment="main">    
         
-        <section id="join-info" class="margin-right:auto margin-left:auto max-w:10 padding:10">
+        <section id="join-info" class="max-width:10 margin-right:auto margin-left:auto padding:10">
             <h1 class="d:none">회원가입 입력 영역</h1>
             <form class="n-form" action="join" method="post">
               <h1 class="n-font:h3 font-weight:3">✏️ 회원 가입</h1>
@@ -25,44 +25,36 @@
                 <label>
                   <span>아이디</span>
                   <input class="input" type="text" name="displayname" placeholder="사용하실 아이디를 입력해주세요" />
+                  <span class="span" name="focus-displayname"></span>
                 </label>
               </div>
               <div>
                 <label>
                   <span>비밀번호</span>
                   <input class="input" type="text" name="password" placeholder="비밀번호를 입력해주세요" />
+                  <span class="span" name="focus-password"></span>
                 </label>
               </div>
               <div>
                 <label>
                   <span>연락처</span>
                   <input class="input" type="text" name="phone" placeholder="연락처를 입력해주세요" />
+                  <span class="span" name="focus-phone"></span>
                 </label>
               </div>
               <div>
                 <label>
                   <span>이메일</span>
                   <input class="input" type="text" name="email" placeholder="이메일을 입력해주세요" />
+                  <span class="span" name="focus-email"></span>
                 </label>
               </div>
               <div>
                 <div>회원종류</div>
                 <fieldset class="d:flex gap:4">
-                  <label class="flex-direction:row ai:center gap:3">
-                    <input type="radio" name="type" class="n-toggle n-toggle:dot" />
-                    <span>일반</span>
-                  </label>
-                  <label class="flex-direction:row ai:center gap:3">
-                    <input type="radio" name="type" class="n-toggle n-toggle:dot" />
-                    <span>창업가</span>
-                  </label>
-                  <label class="flex-direction:row ai:center gap:3">
-                    <input type="radio" name="type" class="n-toggle n-toggle:dot" />
-                    <span>브랜더</span>
-                  </label>
-                  <label class="flex-direction:row ai:center gap:3">
-                    <input type="radio" name="type" class="n-toggle n-toggle:dot" />
-                    <span>투자자</span>
+                  <label class="flex-direction:row ai:center gap:3" th:each="list:${memberTypeList}">
+                    <input type="radio" name="type" value="${list.title}" class="n-toggle n-toggle:dot" />
+                    <span th:text="${list.name}">일반</span>
                   </label>
                 </fieldset>
               </div>

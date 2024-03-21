@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Category
+ * MemberTypeCategory
  */
 @Data
 @Builder
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Category {
 
     long id;
-    String key;
+    String code;
     String name;
     String description;
     String adminId;
