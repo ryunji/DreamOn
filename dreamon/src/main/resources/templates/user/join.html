@@ -5,81 +5,78 @@
     layout:decorate="inc/layout"
 >
 <head>
-
+<script src="/js/user/join.js"></script>
 </head>
 <body>
     <main layout:fragment="main">    
-        <div class="margin-right:auto margin-left:auto max-w:10 padding:10">
-        <form class="n-form" action="join" method="post">
-            <h1 class="n-font:h3 font-weight:3">✏️ member 가입</h1>
-            <div>
-              <label>
-                <span>이름</span>
-                <input type="text" name="korname" placeholder="이름을 입력해주세요" />
-              </label>
-            </div>
-            <div>
-              <label>
-                <span>비밀번호</span>
-                <input type="text" name="password" placeholder="리뷰 제목을 입력해주세요" />
-              </label>
-            </div>
-            <div>
-              <label>
-                <span>영문이름</span>
-                <input type="text" name="engname" placeholder="리뷰 제목을 입력해주세요" />
-              </label>
-            </div>
-            <div>
+        
+        <section id="join-info" class="margin-right:auto margin-left:auto max-w:10 padding:10">
+            <h1 class="d:none">회원가입 입력 영역</h1>
+            <form class="n-form" action="join" method="post">
+              <h1 class="n-font:h3 font-weight:3">✏️ 회원 가입</h1>
+              <div>
                 <label>
-                  <span>핸드폰 번호</span>
-                  <input type="text" name="phone" placeholder="리뷰 제목을 입력해주세요" />
+                  <span>이름</span> 
+                  <input class="input" type="text" name="name" placeholder="이름을 입력해주세요" />
+                  <span class="span" name="focus-name"></span>
                 </label>
               </div>
               <div>
                 <label>
-                  <span>이메일 주소</span>
-                  <input type="text" name="email" placeholder="리뷰 제목을 입력해주세요" />
+                  <span>아이디</span>
+                  <input class="input" type="text" name="display-name" placeholder="사용하실 아이디를 입력해주세요" />
                 </label>
               </div>
-            <div>
-              <div>만족도</div>
-              <fieldset class="d:flex gap:4">
-                <label class="flex-direction:row ai:center gap:3">
-                  <input type="radio" name="satisfaction" class="n-toggle n-toggle:dot" />
-                  <span>1</span>
+              <div>
+                <label>
+                  <span>비밀번호</span>
+                  <input class="input" type="text" name="password" placeholder="비밀번호를 입력해주세요" />
                 </label>
-                <label class="flex-direction:row ai:center gap:3">
-                  <input type="radio" name="satisfaction" class="n-toggle n-toggle:dot" />
-                  <span>2</span>
+              </div>
+              <div>
+                <label>
+                  <span>연락처</span>
+                  <input class="input" type="text" name="phone" placeholder="연락처를 입력해주세요" />
                 </label>
-                <label class="flex-direction:row ai:center gap:3">
-                  <input type="radio" name="satisfaction" class="n-toggle n-toggle:dot" />
-                  <span>3</span>
+              </div>
+              <div>
+                <label>
+                  <span>이메일</span>
+                  <input class="input" type="text" name="email" placeholder="이메일을 입력해주세요" />
                 </label>
-                <label class="flex-direction:row ai:center gap:3">
-                  <input type="radio" name="satisfaction" class="n-toggle n-toggle:dot" />
-                  <span>4</span>
+              </div>
+              <div>
+                <div>회원종류</div>
+                <fieldset class="d:flex gap:4">
+                  <label class="flex-direction:row ai:center gap:3">
+                    <input type="radio" name="satisfaction" class="n-toggle n-toggle:dot" />
+                    <span>일반</span>
+                  </label>
+                  <label class="flex-direction:row ai:center gap:3">
+                    <input type="radio" name="satisfaction" class="n-toggle n-toggle:dot" />
+                    <span>창업가</span>
+                  </label>
+                  <label class="flex-direction:row ai:center gap:3">
+                    <input type="radio" name="satisfaction" class="n-toggle n-toggle:dot" />
+                    <span>브랜더</span>
+                  </label>
+                  <label class="flex-direction:row ai:center gap:3">
+                    <input type="radio" name="satisfaction" class="n-toggle n-toggle:dot" />
+                    <span>투자자</span>
+                  </label>
+                </fieldset>
+              </div>
+        <!-- <div>
+                <label>
+                  <span>공개 여부</span>
+                  <input type="checkbox" class="n-toggle" />
                 </label>
-                <label class="flex-direction:row ai:center gap:3">
-                  <input
-                    type="radio"
-                    name="satisfaction"
-                    class="n-toggle n-toggle:dot"
-                    checked />
-                  <span>5</span>
-                </label>
-              </fieldset>
-            </div>
-            <div>
-              <label>
-                <span>리뷰 공개 여부</span>
-                <input type="checkbox" class="n-toggle" />
-              </label>
-            </div>
-            <div>
-              <button class="n-btn">등록하기</button>
-            </div>
+              </div> -->
+              
+              <!-- 버튼 영역 -->
+              <div>
+                <button class="n-btn">가입하기</button>
+              </div>
           </form>
         </div>
     </main>

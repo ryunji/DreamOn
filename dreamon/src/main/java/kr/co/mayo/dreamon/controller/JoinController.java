@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import kr.co.mayo.dreamon.service.MemberService;
 
 @Controller()
-@RequestMapping("member")
+@RequestMapping("user")
 public class JoinController {
     
     @Autowired
