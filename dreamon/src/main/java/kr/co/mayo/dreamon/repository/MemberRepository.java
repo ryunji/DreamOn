@@ -13,5 +13,5 @@ public interface MemberRepository {
     Member findByUsername(String username, String password);
     int getGoogleIdCount(Long googleId);    
     void saveGoogleNewMember(Member member);
-    void insertMember(String korname, String password, String engname, String phone, String email);
+    void insertMember(String name, String displayname, String password, String phone, String email, String type);
 }

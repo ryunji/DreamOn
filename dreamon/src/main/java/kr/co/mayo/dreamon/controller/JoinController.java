@@ -14,21 +14,25 @@ public class JoinController {
     @Autowired
     private MemberService memberService;
 
+    //1.view 반환
     @RequestMapping("join")
     public String join(){
 
         return "user/join";
     }
 
+    //2.회원가입(저장)
     @PostMapping("join")
-    public String join(String korname      //input의 name
-                     , String password
-                     , String engname      //input의 name
-                     , String phone
-                     , String email      //input의 name
+    public String join(String name          //이름
+                     , String displayname   //닉네임
+                     , String password      //비밀번호
+                     , String phone         //연락처
+                     , String email         //이메일
+                     , String type          //회원타입
                      ){
         
-        memberService.saveNewMemberInfo(korname, password, engname, phone, email);                
+        type = "1";
+        memberService.saveNewMemberInfo(name, displayname, password, phone, email, type);                
         
         //그냥 페이지를 쓰면 css를 먹지 않음.
         return "redirect:/index";

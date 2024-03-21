@@ -34,8 +34,8 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public void saveNewMemberInfo(String korname, String password, String engname, String phone, String email) {
+    public void saveNewMemberInfo(String name, String displayname, String password, String phone, String email, String type) {
         
-        repository.insertMember(korname, password, engname, phone, email);
+        repository.insertMember(name, displayname, password, phone, email, type);
     }
 }

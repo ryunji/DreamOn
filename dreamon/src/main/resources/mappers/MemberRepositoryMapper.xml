@@ -24,22 +24,24 @@
   </insert> 
 
   <insert id="insertMember">
-  INSERT INTO mayodb.MEMBER (PWD
-                          , KOR_NAME
-                          , ENG_NAME
-                          , PHONE
-                          , EMAIL
-                          , JOIN_DATE
-                          , TYPE_CATEGORY_ID
-                          , WITHDRAWAL_DATE
-                          ) VALUES 
-                          ( #{password}
-                          , #{korname}
-                          , #{engname}
-                          , #{phone}
-                          , #{email}
-                          , CURRENT_TIMESTAMP()
-                          , '1'
-                          , null)
+    INSERT INTO mayodb.MEMBER ( DISPLAY_NAME 
+                              , NAME
+                              , PWD
+                              , PHONE
+                              , EMAIL
+                              , MEMBER_TYPE_ID
+                              , JOIN_TYPE_ID
+                              , JOIN_DATE
+                              , WITHDRAWAL_DATE
+                              ) VALUES 
+                              ( #{displayname}
+                              , #{name}
+                              , #{password}
+                              , #{phone}
+                              , #{email}
+                              , '1'
+                              , '1'
+                              , CURRENT_TIMESTAMP()
+                              , null)
   </insert> 
 </mapper>
