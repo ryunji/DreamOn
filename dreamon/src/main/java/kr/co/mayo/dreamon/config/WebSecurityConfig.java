@@ -15,14 +15,14 @@ import org.springframework.security.web.SecurityFilterChain;
 import lombok.RequiredArgsConstructor;
 
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class WebSecurityConfig {
     
     //비밀번호 단방향 암호화 처리.
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
+    // @Bean
+    // public PasswordEncoder passwordEncoder(){
+    //     return new BCryptPasswordEncoder();
+    // }
 
     @Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -55,7 +55,7 @@ public class WebSecurityConfig {
 		
         //2.1.사용자 정보를 담고 있는 자료형
         UserDetails user = User.builder()                                       //기본 코드 : withDefaultPasswordEncoder()
-                               .username("grj90")
+                               .username("gnosis90")
                                .password("{noop}11111")
                                .roles("MEMBER", "ADMIN")
                                .build();

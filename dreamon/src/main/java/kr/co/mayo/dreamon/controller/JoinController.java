@@ -19,8 +19,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequestMapping("user")
 public class JoinController {
     
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    // @Autowired
+    // private PasswordEncoder passwordEncoder;
 
     @Autowired
     private CategoryService categoryService;
@@ -47,7 +47,7 @@ public class JoinController {
                      , String type          //회원타입
                      ){
         
-        password = passwordEncoder.encode(password);
+        //password = passwordEncoder.encode(password);
         System.out.println("11111: " + password);
 
         memberService.saveNewMemberInfo(name, displayname, password, phone, email, type);                
