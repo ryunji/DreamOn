@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main layout:fragment="main">    
+      <div class="text-align:right">
+          <button type="button" class="n-btn n-btn:filled n-btn-size:2">초기화</button>
+          <button type="button" class="n-btn n-btn:filled n-btn-size:2">스케줄 실행</button>
+        </div> 
+        <section id="community" class="d:flex margin-right:auto margin-left:auto padding:10">
+            
+
+            <h1 class="d:none">커뮤니티 게시글 목록</h1>
+            <table class="n-table n-table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Last Login</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Tom</td>
+                  <td>male</td>
+                  <td>2020-11-01</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Olivia</td>
+                  <td>female</td>
+                  <td>2021-03-01</td>
+                </tr>
+              </tbody>
+            </table>
+            <form class="n-form">
+              <div>
+                <label>
+                  <span>이름</span>
+                  <input type="text" placeholder="이름을 입력해주세요" />
+                </label>
+              </div>
+              <div>
+                <label>
+                  <span>취미</span>
+                  <input type="text" placeholder="취미을 입력해주세요" />
+                </label>
+              </div>
+              <div>
+                <label>
+                  <span>국적</span>
+                  <input type="text" placeholder="국적을 입력해주세요" />
+                </label>
+              </div>
+            </form>
+        </section>
+
+        <section id="community" class="margin-right:auto margin-left:auto padding:10">
+            
+          <div class="text-align:right">
+              <button type="button" class="n-btn n-btn:filled n-btn-size:2">로그삭제</button>
+    
+            </div> 
+            <table class="n-table n-table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Last Login</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Tom</td>
+                  <td>male</td>
+                  <td>2020-11-01</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Olivia</td>
+                  <td>female</td>
+                  <td>2021-03-01</td>
+                </tr>
+              </tbody>
+            </table>
+
+      </section>
+    </main>
+</body>
+</html>
