@@ -31,7 +31,8 @@ public class CrawlingController {
 
         //자원설정
         String WEB_DRIVER_ID   = "webdriver.chrome.driver";
-		String WEB_DRIVER_PATH = "C:\\Users\\gnosi\\Downloads\\chromedriver-win64 (1)\\chromedriver-win64\\chromedriver.exe";
+		String WEB_DRIVER_PATH = "./src/main/resources/static/lib/chromedriver.exe";
+      //String WEB_DRIVER_PATH = "C:\\Users\\gnosi\\Downloads\\chromedriver-win64 (1)\\chromedriver-win64\\chromedriver.exe";
 		System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
 
         ChromeOptions options = new ChromeOptions();

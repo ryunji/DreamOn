@@ -16,7 +16,7 @@ public class News {
     long id;
     int year;
     String title;
-    String content;
+    String summary;
     Date regDate;
     long newsCategoryId;
 }

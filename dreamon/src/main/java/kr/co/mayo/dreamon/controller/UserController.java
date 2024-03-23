@@ -81,24 +81,6 @@ public class UserController {
         return "redirect:/index";
     }
 
-    //2.뉴스 화면
-    @GetMapping("news")
-    public String news( @RequestParam(name = "p", required = false, defaultValue = "1") Integer page
-                      ,  Model model){
-
-        //17Line에 /user/signin으로 해서 다음과 같은 에러 발생
-        //org.thymeleaf.exceptions.TemplateInputException: Error resolving template [/user/signin], template might not exist or might not be accessible by any of the configured Template Resolvers
-        
-        List<News> news = newsService.findAll(page);
-
-        int newsCnt = newsService.getNewsCnt();
-        System.out.println("1.news count : " + newsCnt);
-        model.addAttribute("news", news);
-        model.addAttribute("count", newsCnt);
-        System.out.println("창업 뉴스 리스트 화면");
-        return "menu/news";
-    }
-
     //2.에디터 호출화면
     @GetMapping("input")
     public String input(){

@@ -6,16 +6,29 @@
 <!-- 구현하고자 하는 인터페이스의 전체 경로와 인터페이스 명을 네임스페이스에 적는다. -->  
 <mapper namespace="kr.co.mayo.dreamon.repository.NewsRepository">
 
-  <select id="getNewsCount" resultType="Integer">
-    SELECT count(*)
-      FROM NEWS
-  </select>
-
-  <select id="getNewsList" resultType="News">
+  <select id="findAll" resultType="News">
     SELECT *
       FROM NEWS
+    <where>
+      <if test="query != null">
+       AND TITLE   LIKE '%${query}%'
+        OR SUMMARY LIKE '%${query}%' 
+      </if>
+    </where>
       LIMIT #{offset}, #{size}
   </select>
+
+  <select id="Count" resultType="Integer">
+    SELECT count(*)
+      FROM NEWS
+    <where>
+      <if test="query != null">
+       AND TITLE   LIKE '%${query}%'
+        OR SUMMARY LIKE '%${query}%'
+      </if>
+    </where>
+  </select>
+
 
   <select id="checkDupNewsData" resultType="Integer">
     SELECT count(*)

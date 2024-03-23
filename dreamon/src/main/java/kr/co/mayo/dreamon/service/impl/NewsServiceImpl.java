@@ -17,13 +17,37 @@ public class NewsServiceImpl implements NewsService{
 
     @Autowired
     private NewsRepository repository;
-    @Override
-    public List<News> findAll(Integer page) {
 
-        int size = 6;
+    //1.1.페이지 클릭(처음 페이지 진입 시 포함, page default = 1)
+    @Override
+    public List<News> getList(Integer page) {
+
+        return getList(page, null);
+    }
+
+    //2.1.뉴스 검색 조회
+    @Override
+    public List<News> getList(Integer page, String query) {
+
+        int size   = 4;                                             //6;
         int offset = (page-1)*size;
-        List<News> list = repository.getNewsList(offset, size);
+        List<News> list = repository.findAll(query, offset, size);
         return list;
+    }
+
+    //1.1.뉴스 전체 건수
+    @Override
+    public int getCount() {
+
+        return getCount(null);
+    }
+
+    //2.2.뉴스 검색 조회 건수
+    @Override
+    public int getCount(String query) {
+        
+        int count = repository.Count(query);
+        return count;
     }
 
     @Override
@@ -50,13 +74,17 @@ public class NewsServiceImpl implements NewsService{
         }
     }
 
-    @Override
-    public int getNewsCnt() {
-       
-        int newsCnt = repository.getNewsCount();
-        return newsCnt;
-    }
+    
 
+
+
+
+
+
+
+
+
+  
    
     
 }

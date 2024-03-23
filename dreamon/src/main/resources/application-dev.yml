@@ -11,11 +11,6 @@ spring:
     password: 240219
 
 #3.Mybatis 설정 정보
-mybatis:
-  configuration:
-    map-underscore-to-camel-case: true
-  mapper-locations: mappers/*.xml                     #*Mapper.xml
-  type-aliases-package: kr.co.mayo.dreamon.entity 
 
 #4.로그설정
 logging:
@@ -25,6 +20,12 @@ logging:
         mayo:
           dreamon:
             repository: DEBUG  
+#5.구글
+
+#6.쓰레드 풀
+thread:
+  pool:
+    size: 3
 
 # spring:
 #   mail:

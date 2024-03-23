@@ -1,5 +1,6 @@
 package kr.co.mayo.dreamon.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +18,26 @@ import kr.co.mayo.dreamon.service.NewsService;
 public class NewsController {
     
     @Autowired
-    private NewsService newsService;
+    private NewsService service;
 
     //1.창업 뉴스 메인 리스트 화면 호출
     @GetMapping("list")
-    public String list(  @RequestParam(name = "p", required = false, defaultValue = "1") Integer page
-                       , Model model){
+    public String list(@RequestParam(name = "c", required = false) Long categoryId
+                     , @RequestParam(name = "q", required = false) String query
+                     , @RequestParam(name = "p", required = false, defaultValue = "1") Integer page
+                     , Model model){
 
-        List<News> list = newsService.findAll(page);
-        int count       = newsService.getNewsCnt();
+        List<News> list = new ArrayList<>();
+        int count = 0;
+        if(query != null){
+            list = service.getList(page, query);
+            count = service.getCount(query);  
+        }else{
+            list = service.getList(page);
+            count = service.getCount();  
+        }
 
+        System.out.println("list : " + list);
         model.addAttribute("newsList", list);
         model.addAttribute("count",    count);
         return "news/list";

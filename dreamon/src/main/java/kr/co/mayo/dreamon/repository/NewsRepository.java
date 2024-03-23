@@ -11,8 +11,8 @@ import kr.co.mayo.dreamon.entity.News;
 @Mapper
 public interface NewsRepository {
     
+    List<News> findAll(String query, int offset, int size);
+    int Count(String query);
     void saveNewNewsData(Map map);
-    List<News> getNewsList(int offset, int size);
-    int getNewsCount();
 	int checkDupNewsData(int inewIdxNo);
 }
