@@ -2,6 +2,7 @@ package kr.co.mayo.dreamon.service.admin;
 
 import java.util.List;
 
+import kr.co.mayo.dreamon.entity.ScheduleLog;
 import kr.co.mayo.dreamon.entity.Schedules;
 
 public interface NewsCrawlingService {

@@ -19,7 +19,7 @@ public class SchedulerConfig implements SchedulingConfigurer {
         ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();
  
         scheduler.setPoolSize(POOL_SIZE);
-        scheduler.setThreadNamePrefix("현재 쓰레드-");
+        scheduler.setThreadNamePrefix("Scheduler Thread 실행");
         scheduler.initialize();
  
         taskRegistrar.setTaskScheduler(scheduler);

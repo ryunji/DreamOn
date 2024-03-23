@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- 구현하고자 하는 인터페이스의 전체 경로와 인터페이스 명을 네임스페이스에 적는다. -->  
+<mapper namespace="kr.co.mayo.dreamon.repository.SchedulerRepository">
+
+    <insert id="registLog">
+        /* 퇴직임직원 관련 거래처 정보 카운트 queryId : user.cleanPosco.insertMember*/
+        INSERT INTO SCHEDULER_LOG(SCHEDULES_ID
+                                , CODE
+                                , STATUS
+                                , MESSAGE
+                                , EXCUTION_TIME
+                                , REG_DATE)
+                          VALUES( #{schedulesId}
+                                , #{code}
+                                , #{status}
+                                , #{message}
+                                , #{excutionTime}
+                                , now())
+    </insert>
+
+
+    <select id="findAllLog" resultType="ScheduleLog">
+      SELECT   SL.ID 
+             , S.JOB_NAME
+             , SL.CODE
+             , SL.STATUS
+             , SL.MESSAGE 
+             , SL.EXCUTION_TIME
+        FROM SCHEDULER_LOG SL
+   LEFT JOIN SCHEDULES     S
+          ON SL.SCHEDULES_ID = S.ID
+    </select>
+</mapper>

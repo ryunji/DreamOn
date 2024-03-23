@@ -81,27 +81,24 @@
               <thead>
                 <tr>
                   <th scope="col">ID</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Gender</th>
-                  <th scope="col">Last Login</th>
+                  <th scope="col">JOB_NAME</th>
+                  <th scope="col">CODE</th>
+                  <th scope="col">STATUS</th>
+                  <th scope="col">MESSAGE</th>
+                  <th scope="col">EXCUTION_TIME</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Tom</td>
-                  <td>male</td>
-                  <td>2020-11-01</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Olivia</td>
-                  <td>female</td>
-                  <td>2021-03-01</td>
+                <tr th:each="logList : ${logList}">
+                  <th scope="row" th:text="${logList.id}">1</th>
+                  <td th:text="${logList.jobName}">Tom</td>
+                  <td th:text="${logList.code}">male</td>
+                 <td th:text="${logList.status}">2020-11-01</td>
+                 <td th:text="${logList.message}">2020-11-01</td>
+                 <td th:text="${logList.excutionTime}">2020-11-01</td>
                 </tr>
               </tbody>
             </table>
-
       </section>
     </main>
 </body>
