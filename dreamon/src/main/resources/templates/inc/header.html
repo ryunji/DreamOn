@@ -2,35 +2,38 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
                 xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
 >
-
+<!-- <head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/newtil-css@0.1.32/dist/style.css" />     
+</head> -->
 <!-- Spinner Start : 화면 진입 시 움직이는 네모 로딩 바 -->
 <div id="spinner" class="show bg-white position-fixed translate-middle w-10 vh-10 top-50 start-50 d-flex align-items-center justify-content-center">
 <div class="spinner"></div>
 </div>
 <!-- Spinner End -->
 
-<!-- Topbar Start : 헤더는 섹션태그 아님 -->
-<header class="container-fluid bg-dark px-5 d-none d-lg-block">
-    <!-- h1 Mayo의 섹션은 body 임 : HTML 18강 -->
-    <h1 class="d:none">Mayo</h1>
-    <div class="row gx-0">
-        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
-            <div class="d-inline-flex align-items-center" style="height: 45px;">
-           <!-- <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
-                <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small> -->
-                <small class="text-light"><i class="fa fa-envelope-open me-2"></i>gnosis90@naver.com</small>
+    <!-- Topbar Start : 헤더는 섹션태그 아님 -->
+    <header class="container-fluid bg-dark px-5 d-none d-lg-block">
+        <!-- h1 Mayo의 섹션은 body 임 : HTML 18강 -->
+        <h1 class="d:none">Mayo</h1>
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+            <!-- <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small> -->
+                    <a style="background-img:house" href="/Home" class="nav-item nav-link active">Home</a>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>gnosis90@naver.com</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+            <!-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a> -->
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
+            <!-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a> -->
+                </div>
             </div>
         </div>
-        <div class="col-lg-4 text-center text-lg-end">
-            <div class="d-inline-flex align-items-center" style="height: 45px;">
-           <!-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a> -->
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
-           <!-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a> -->
-            </div>
-        </div>
-    </div>
-</header>
-<!-- Topbar End -->
+    </header>
+    <!-- Topbar End -->
 </html>

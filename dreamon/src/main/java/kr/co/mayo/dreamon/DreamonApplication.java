@@ -2,7 +2,9 @@ package kr.co.mayo.dreamon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
+@EnableScheduling
 @SpringBootApplication
 public class DreamonApplication {
 
@@ -17,5 +19,4 @@ public class DreamonApplication {
 		//디스패처가 함께 실행된다.
 		SpringApplication.run(DreamonApplication.class, args);
 	}
-
 }
