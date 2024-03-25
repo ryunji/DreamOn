@@ -1,4 +1,4 @@
-package kr.co.mayo.dreamon.service.admin;
+package kr.co.mayo.dreamon.service.admin.News;
 
 import java.util.List;
 

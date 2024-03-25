@@ -61,18 +61,19 @@ public class NewsServiceImpl implements NewsService{
                 //idxNo 중복 체크
                 String newIdxNo   = temp.getIdxNo();
                 Long newsSourceId = temp.getNewsSourceId();
-System.out.println("1.newIdxNo : " + newIdxNo);
+//System.out.println("1.newIdxNo : " + newIdxNo);
                 int checkCnt = repository.checkDupNewsData(newIdxNo, newsSourceId);
-                System.out.println("1.checkCnt : " + checkCnt);                
+//System.out.println("1.checkCnt : " + checkCnt);                
                 if(checkCnt == 0){
                     
+                    map.put("idxNo",          newIdxNo);
+                    map.put("link",           temp.getLink());
                     map.put("year",           2024);
                     map.put("newsSourceId",   temp.getNewsSourceId());
                     map.put("title",          temp.getTitle());
                     map.put("imgPath",        temp.getImgPath());
                     map.put("summary",        temp.getSummary());
                     map.put("newsCategoryId", 4);
-                    map.put("idxNo",          newIdxNo);
                     repository.saveNewsData(map);
                 }
         }
