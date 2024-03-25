@@ -12,5 +12,5 @@ public interface NewsService {
     int getCount();                                 //1.1.뉴스 전체 건수
     List<News> getList(Integer page, String query); //2.1.뉴스 검색 조회
     int getCount(String query);                     //2.2.뉴스 검색 조회 건수
-    void saveNewNewsData(List<CrawlingDTO> list);
+    void saveNewNewsData(List<News> list);
 }

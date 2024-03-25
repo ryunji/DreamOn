@@ -1,5 +1,41 @@
 
 :root{
+    
+    --width-0: 0px;
+    --width-1: 50px;
+    --width-2: 100px;
+    --width-3: 150px;
+    --width-4: 200px;
+    --width-5: 250px;
+    --width-6: 300px;
+    --width-7: 350px;
+    --width-8: 400px;
+    --width-9: 450px;
+    --width-10: 500px;
+    --width-11: 550px;
+    --width-12: 600px;
+    --width-13: 650px;
+    --width-14: 700px;
+    --width-15: 750px;
+    --width-15: 800px;
+    --width-15: 850px;
+    --width-16: 900px;
+    --width-17: 1000px;
+    --width-18: 1100px;
+    --width-19: 1200px;
+    --width-20: 1300px;
+
+    --width-percent-1: 10%;
+    --width-percent-2: 20%;
+    --width-percent-3: 30%;
+    --width-percent-4: 40%;
+    --width-percent-5: 50%;
+    --width-percent-6: 60%;
+    --width-percent-7: 70%;
+    --width-percent-8: 80%;
+    --width-percent-9: 90%;
+    --width-percent-10: 100%;    
+    
     /* ========== color palette ===========  */
     --rgb-base-0: 255, 255, 255;
     --rgb-base-1: 249, 250, 251;

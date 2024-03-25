@@ -14,8 +14,10 @@ import lombok.NoArgsConstructor;
 public class News {
     
     long id;
+    String idxNo;
     int year;
     String title;
+    String imgPath;
     String summary;
     Date regDate;
     long newsCategoryId;

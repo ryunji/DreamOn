@@ -15,6 +15,9 @@
         OR SUMMARY LIKE '%${query}%' 
       </if>
     </where>
+
+
+    ORDER BY REG_DATE DESC
       LIMIT #{offset}, #{size}
   </select>
 
@@ -40,12 +43,14 @@
 	  INSERT INTO NEWS ( IDX_NO
                      , YEAR
                      , TITLE
+                     , IMG_PATH
                      , SUMMARY
                      , REG_DATE
                      , NEWS_CATEGORY_ID)
                VALUES( #{idxNo}
                      , #{year}
                      , #{title}
+                     , #{imgPath}
                      , #{summary}
                      , now()
                      , #{newsCategoryId}

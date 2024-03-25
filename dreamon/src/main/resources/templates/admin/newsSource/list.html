@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main layout:fragment="main">    
+      <div class="text-align:right">
+          <button type="button" class="n-btn n-btn:filled n-btn-size:2">초기화</button>
+          <button type="button" class="n-btn n-btn:filled n-btn-size:2">스케줄 실행</button>
+        </div> 
+        <section id="community" class="d:flex margin-right:auto margin-left:auto padding:10">
+            
+<div style="max-width: 80%;">
+            <h1 class="d:none">커뮤니티 게시글 목록</h1>
+            <table class="n-table n-table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Last Login</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="list : ${list}">
+                  <th scope="row" th:text="${list.id}">1</th>
+                  <td th:text="${list.jobName}">Tom</td>
+                  <td th:text="${list.url}">male</td>
+                  <td>2020-11-01</td>
+                </tr>
+                <!-- <tr>
+                  <th scope="row">2</th>
+                  <td>Olivia</td>
+                  <td>female</td>
+                  <td>2021-03-01</td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <form action="regist" method="post" class="n-form n-field-label-position:left">
+              <h1 class="n-font:h3 font-weight:3">스케줄러 등록</h1>
+              <div>
+                <label>
+                  <span>스케쥴명</span>
+                  <input type="text" name="name" placeholder="작성자명을 입력해주세요" />
+                </label>
+              </div>
+              <div>
+                <label>
+                  <span>URL</span>
+                  <input type="text" name="url" placeholder="URL을 등록해주세요." />
+                </label>
+              </div>     
+              <div>
+                <label>
+                  <span>리뷰 공개 여부</span>
+                  <input type="checkbox" class="n-toggle" />
+                </label>
+              </div>
+              <div>
+                <button class="n-btn">등록하기</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section id="community" class="margin-right:auto margin-left:auto padding:10">
+            
+          <div class="text-align:right">
+              <button type="button" class="n-btn n-btn:filled n-btn-size:2">로그삭제</button>
+    
+            </div> 
+            <table class="n-table n-table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">JOB_NAME</th>
+                  <th scope="col">CODE</th>
+                  <th scope="col">STATUS</th>
+                  <th scope="col">MESSAGE</th>
+                  <th scope="col">EXCUTION_TIME</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="logList : ${logList}">
+                  <th scope="row" th:text="${logList.id}">1</th>
+                  <td th:text="${logList.jobName}">Tom</td>
+                  <td th:text="${logList.code}">male</td>
+                 <td th:text="${logList.status}">2020-11-01</td>
+                 <td th:text="${logList.message}">2020-11-01</td>
+                 <td th:text="${logList.excutionTime}">2020-11-01</td>
+                </tr>
+              </tbody>
+            </table>
+      </section>
+    </main>
+</body>
+</html>
