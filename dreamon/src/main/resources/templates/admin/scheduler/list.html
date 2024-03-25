@@ -18,35 +18,30 @@
             
 <div style="max-width: 80%;">
             <h1 class="d:none">커뮤니티 게시글 목록</h1>
-            <div style="max-width: 80%;">
-              <h1 class="d:none">커뮤니티 게시글 목록</h1>
-              <table class="n-table n-table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Last Login</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr th:each="list : ${list}">
-                    <th scope="row" th:text="${list.id}">1</th>
-                    <td th:text="${list.name}">Tom</td>
-                    <td th:text="${list.url}">male</td>
-                    <td>2020-11-01</td>
-                  </tr>
-                  <!-- <tr>
-                    <th scope="row">2</th>
-                    <td>Olivia</td>
-                    <td>female</td>
-                    <td>2021-03-01</td>
-                  </tr> -->
-                </tbody>
-              </table>
-            </div>
-            <div>
-       
+            <!-- <table class="n-table n-table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Last Login</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="list : ${list}">
+                  <th scope="row" th:text="${list.id}">1</th>
+                  <td th:text="${list.jobName}">Tom</td>
+                  <td th:text="${list.url}">male</td>
+                  <td>2020-11-01</td>
+                </tr>
+                <!-- <tr>
+                  <th scope="row">2</th>
+                  <td>Olivia</td>
+                  <td>female</td>
+                  <td>2021-03-01</td>
+                </tr> -->
+              </tbody>
+            </table> -->
           </div>
           <div>
             <form action="regist" method="post" class="n-form n-field-label-position:left">

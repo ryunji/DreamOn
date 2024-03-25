@@ -1,0 +1,22 @@
+.width\:11,               .w\:11 { width: var(--width-11) !important; }
+.width\:12,               .w\:12 { width: var(--width-12) !important; }
+.width\:13,               .w\:13 { width: var(--width-13) !important; }
+.width\:14,               .w\:14 { width: var(--width-14) !important; }
+.width\:15,               .w\:15 { width: var(--width-15) !important; }
+.width\:16,               .w\:16 { width: var(--width-16) !important; }
+.width\:17,               .w\:17 { width: var(--width-17) !important; }
+.width\:18,               .w\:18 { width: var(--width-18) !important; }
+.width\:19,               .w\:19 { width: var(--width-19) !important; }
+.width\:20,               .w\:20 { width: var(--width-20) !important; }
+
+/* ---- max-width ------------------------------------------------- */
+.max-width\:11,       .max-w\:11 { max-width: var(--width-11) !important; }
+.max-width\:12,       .max-w\:12 { max-width: var(--width-12) !important; }
+.max-width\:13,       .max-w\:13 { max-width: var(--width-13) !important; }
+.max-width\:14,       .max-w\:14 { max-width: var(--width-14) !important; }
+.max-width\:15,       .max-w\:15 { max-width: var(--width-15) !important; }
+.max-width\:16,       .max-w\:16 { max-width: var(--width-16) !important; }
+.max-width\:17,       .max-w\:17 { max-width: var(--width-17) !important; }
+.max-width\:18,       .max-w\:18 { max-width: var(--width-18) !important; }
+.max-width\:19,       .max-w\:19 { max-width: var(--width-19) !important; }
+.max-width\:20,       .max-w\:20 { max-width: var(--width-20) !important; }

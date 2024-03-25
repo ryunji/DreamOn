@@ -15,9 +15,6 @@
         OR SUMMARY LIKE '%${query}%' 
       </if>
     </where>
-
-
-    ORDER BY REG_DATE DESC
       LIMIT #{offset}, #{size}
   </select>
 
@@ -36,20 +33,25 @@
   <select id="checkDupNewsData" resultType="Integer">
     SELECT count(*)
       FROM NEWS
-     WHERE IDX_NO = #{newIdxNo}
+     WHERE IDX_NO         = #{newIdxNo}
+       AND NEWS_SOURCE_ID = #{newsSourceId}
   </select>
   
-  <insert id="saveNewNewsData"> 
+  <insert id="saveNewsData"> 
 	  INSERT INTO NEWS ( IDX_NO
+                     , NEWS_SOURCE_ID
                      , YEAR
                      , TITLE
+                     , LINK
                      , IMG_PATH
                      , SUMMARY
                      , REG_DATE
                      , NEWS_CATEGORY_ID)
                VALUES( #{idxNo}
+                     , #{newsSourceId}
                      , #{year}
                      , #{title}
+                     , #{link}
                      , #{imgPath}
                      , #{summary}
                      , now()

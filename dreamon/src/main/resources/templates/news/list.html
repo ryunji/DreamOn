@@ -3,6 +3,9 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="inc/layout">
+<head>
+    <script src="/js/news/list.js"></script>
+</head>      
     <main layout:fragment="main">
         
         <!-- 19강 : 헤더외에 다른 부수적인 정보가 들어갈 때, 컨텐트 말고(ex : 전체명소, 더 보기 )-->
@@ -71,14 +74,15 @@
                 <article class="n-item n-item:underline margin-top:2 d:flex align-items:center" th:each="news : ${newsList}">
                     <!-- 표, 폼, 문장, 목록에는 제목을 달아주도록 한다. 즉 다섯개의 컨텐츠가 아닌 녀석에는 제목을 달아주지 않는다. HTML 13강 -->
                     <div class="h:3 w:3 bd-radius:3 box-sizing: border-box of:hidden">
-                        <img class="h:3 w:3 bd-radius:3 of:hidden" alt="americano" src="/imagePath/2024/03/25/0_4272_4094_539_v150.jpg"/>
+                        <!-- <img class="h:3 w:3 bd-radius:3 of:hidden" alt="americano" src="/imagePath/2024/03/25/0_4272_4094_539_v150.jpg"/> -->
+                        <img class="h:3 w:3 bd-radius:3 of:hidden" alt="americano" src="/imagePath/2024/03/25/0_4272_4094_539_v150.jpg" th:src="${news.imgPath}" />
                     </div> 
                     
                     <div class="d:flex flex-direction:column padding:2">
                         <div class="d:flex justify-content-between">
                             <h1>
                                 <a  class="font-size:3 font-weight:3"
-                                    href="https://www.newsnjob.com/news/articleView.html?idxno=25495" 
+                                    th:href="${news.link}" 
                                     th:text="${news.title}"
                                     target="_top">
                                     뉴스 제목

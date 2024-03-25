@@ -13,6 +13,6 @@ public interface NewsRepository {
     
     List<News> findAll(String query, int offset, int size);
     int Count(String query);
-    void saveNewNewsData(Map map);
-	int checkDupNewsData(int inewIdxNo);
+    void saveNewsData(Map map);
+	int checkDupNewsData(String newIdxNo, Long newsSourceId);
 }

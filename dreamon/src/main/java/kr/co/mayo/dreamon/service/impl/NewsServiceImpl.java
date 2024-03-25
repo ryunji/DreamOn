@@ -51,7 +51,7 @@ public class NewsServiceImpl implements NewsService{
     }
 
     @Override
-    public void saveNewNewsData(List<News> list) {
+    public void saveNewsData(List<News> list) {
       
         for(int i = 0; i < list.size(); i++){
 
@@ -59,19 +59,22 @@ public class NewsServiceImpl implements NewsService{
             Map map = new HashMap(); 
 
                 //idxNo 중복 체크
-                String newIdxNo = temp.getIdxNo();
-                System.out.println("1.newIdxNo : " + newIdxNo);
-                //int checkCnt = repository.checkDupNewsData(Integer.parseInt(newIdxNo));
-                //if(checkCnt == 0){
+                String newIdxNo   = temp.getIdxNo();
+                Long newsSourceId = temp.getNewsSourceId();
+System.out.println("1.newIdxNo : " + newIdxNo);
+                int checkCnt = repository.checkDupNewsData(newIdxNo, newsSourceId);
+                System.out.println("1.checkCnt : " + checkCnt);                
+                if(checkCnt == 0){
                     
                     map.put("year",           2024);
+                    map.put("newsSourceId",   temp.getNewsSourceId());
                     map.put("title",          temp.getTitle());
                     map.put("imgPath",        temp.getImgPath());
                     map.put("summary",        temp.getSummary());
                     map.put("newsCategoryId", 4);
                     map.put("idxNo",          newIdxNo);
-                    repository.saveNewNewsData(map);
-                //}
+                    repository.saveNewsData(map);
+                }
         }
     }
 

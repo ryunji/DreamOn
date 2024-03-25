@@ -15,8 +15,10 @@ public class News {
     
     long id;
     String idxNo;
+    Long newsSourceId;
     int year;
     String title;
+    String link;
     String imgPath;
     String summary;
     Date regDate;

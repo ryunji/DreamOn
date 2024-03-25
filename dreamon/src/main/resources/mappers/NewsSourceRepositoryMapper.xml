@@ -9,5 +9,6 @@
     <select id="findAll" resultType="NewsSource">
       SELECT  *
         FROM NEWS_SOURCE
+       WHERE USE_YN = 'Y'
     </select>
 </mapper>
