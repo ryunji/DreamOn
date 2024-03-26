@@ -48,7 +48,6 @@ public class JoinController {
                      ){
         
         //password = passwordEncoder.encode(password);
-        System.out.println("11111: " + password);
 
         memberService.saveNewMemberInfo(name, displayname, password, phone, email, type);                
         

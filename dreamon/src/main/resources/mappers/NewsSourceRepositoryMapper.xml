@@ -11,6 +11,7 @@
       SELECT  *
         FROM NEWS_SOURCE
        WHERE USE_YN = 'Y'
+         AND ID     = 1
     </select>
 
   <!-- 2. 뉴스 테이블 Row 클릭 시 1행 반환 -->

@@ -45,6 +45,9 @@
                      , LINK
                      , IMG_PATH
                      , SUMMARY
+                     , WRITER
+                     , INFO
+                     , WRITE_DATE
                      , REG_DATE
                      , NEWS_CATEGORY_ID)
                VALUES( #{idxNo}
@@ -54,8 +57,21 @@
                      , #{link}
                      , #{imgPath}
                      , #{summary}
+                     , #{writer}
+                     , #{info}
+                     , #{writeDate}
                      , now()
                      , #{newsCategoryId}
                      )
+  </insert>
+
+  <insert id="insertMyNews"> 
+	  INSERT INTO NEWS_SCRAP ( MEMBER_ID
+                           , NEWS_ID
+                           , REG_DATE)
+                     VALUES( 1
+                           , #{id}
+                           , now()
+                           )
   </insert>
 </mapper>

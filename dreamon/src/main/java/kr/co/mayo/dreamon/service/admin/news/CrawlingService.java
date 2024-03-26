@@ -1,11 +1,10 @@
-package kr.co.mayo.dreamon.service.admin;
+package kr.co.mayo.dreamon.service.admin.news;
 
 import java.util.List;
 
-import kr.co.mayo.dreamon.entity.ScheduleLog;
 import kr.co.mayo.dreamon.entity.Schedules;
 
-public interface NewsCrawlingService {
+public interface CrawlingService{
 
     //1.스케쥴 리스트 조회
     List<Schedules> getList();

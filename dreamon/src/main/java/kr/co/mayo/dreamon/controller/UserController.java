@@ -8,15 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.co.mayo.dreamon.entity.Category;
 import kr.co.mayo.dreamon.entity.Member;
 import kr.co.mayo.dreamon.entity.Menu;
-import kr.co.mayo.dreamon.entity.News;
-import kr.co.mayo.dreamon.selenium.CrawlingExample;
 import kr.co.mayo.dreamon.service.CategoryService;
 import kr.co.mayo.dreamon.service.MemberService;
 import kr.co.mayo.dreamon.service.MenuService;
@@ -93,9 +90,6 @@ public class UserController {
     
     @GetMapping("home")
     public String home(Model model){
-
-
-        CrawlingExample ex = new CrawlingExample();
 
         //17Line에 /user/signin으로 해서 다음과 같은 에러 발생
         //org.thymeleaf.exceptions.TemplateInputException: Error resolving template [/user/signin], template might not exist or might not be accessible by any of the configured Template Resolvers

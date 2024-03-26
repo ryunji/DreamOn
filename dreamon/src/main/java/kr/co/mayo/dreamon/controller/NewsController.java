@@ -37,7 +37,7 @@ public class NewsController {
             count = service.getCount();  
         }
 
-System.out.println("list : " + list);
+//System.out.println("list : " + list);
         model.addAttribute("newsList", list);
         model.addAttribute("count",    count);
         return "news/list";

@@ -11,11 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import kr.co.mayo.dreamon.controller.CrawlingController;
 import kr.co.mayo.dreamon.entity.ScheduleLog;
 import kr.co.mayo.dreamon.entity.Schedules;
-import kr.co.mayo.dreamon.service.admin.NewsCrawlingService;
 import kr.co.mayo.dreamon.service.admin.SchedulerService;
+import kr.co.mayo.dreamon.service.admin.news.CrawlingService;
 import lombok.extern.slf4j.Slf4j;
 
 //참고 블로그 : https://covenant.tistory.com/254
@@ -30,7 +29,7 @@ public class ScheduledTasks {
     private SchedulerService service;
 
     @Autowired
-    private NewsCrawlingService newsCrawlingService;
+    private CrawlingService newsCrawlingService;
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");    //DateTimeFormatter.ofPattern("mm:ss:SSS");
 
   //@Scheduled(fixedRate = 3000)

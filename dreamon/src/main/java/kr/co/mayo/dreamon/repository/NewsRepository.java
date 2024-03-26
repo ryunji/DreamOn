@@ -15,4 +15,5 @@ public interface NewsRepository {
     int Count(String query);
     void saveNewsData(Map map);
 	int checkDupNewsData(String newIdxNo, Long newsSourceId);
+    void insertMyNews(Long id);
 }

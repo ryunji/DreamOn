@@ -1,18 +1,17 @@
-package kr.co.mayo.dreamon.service.impl.admin;
+package kr.co.mayo.dreamon.service.impl.admin.news;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.mayo.dreamon.entity.ScheduleLog;
 import kr.co.mayo.dreamon.entity.Schedules;
 import kr.co.mayo.dreamon.repository.NewsCrawlingRepository;
 import kr.co.mayo.dreamon.repository.SchedulerRepository;
-import kr.co.mayo.dreamon.service.admin.NewsCrawlingService;
+import kr.co.mayo.dreamon.service.admin.news.CrawlingService;
 
 @Service
-public class NewsCrawlingServiceImpl implements NewsCrawlingService{
+public class CrawlingServiceImpl implements CrawlingService{
 
     @Autowired
     private SchedulerRepository repository;

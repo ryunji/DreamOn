@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+    <script src="/js/news/list.js"></script>
+</head>      
+    <main layout:fragment="main">
+        
+        <ul class="n-list n-list-item:shadow">
+            <li class="d:flex">
+              <!-- <div class="h:2 w:2 bd-radius:3 of:hidden">
+                <img
+                  alt="americano"
+                  src="/coffe_americano.png"
+                  class="h:100p w:100p obj-fit:cover" />
+              </div> -->
+              <div class="ml:6">
+                <div class="n-font:subtitle">
+                    <a href="/myScrapNews/list">
+                        뉴스 스크랩
+                    </a>
+                        <!-- <div class="color:base-7 font-weight:2">$4.00</div> -->
+              </div>
+            </li>
+          </ul>
+    </main>   
+</html>

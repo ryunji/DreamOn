@@ -7,7 +7,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.mayo.dreamon.dto.CrawlingDTO;
 import kr.co.mayo.dreamon.entity.News;
 import kr.co.mayo.dreamon.repository.NewsRepository;
 import kr.co.mayo.dreamon.service.NewsService;
@@ -77,6 +76,12 @@ public class NewsServiceImpl implements NewsService{
                     repository.saveNewsData(map);
                 }
         }
+    }
+
+    @Override
+    public void scrapNews(Long id) {
+        
+        repository.insertMyNews(id);
     }
 
     

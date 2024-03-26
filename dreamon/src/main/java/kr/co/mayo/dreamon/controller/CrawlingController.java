@@ -24,7 +24,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import kr.co.mayo.dreamon.entity.News;
 import kr.co.mayo.dreamon.entity.NewsSource;
 import kr.co.mayo.dreamon.service.NewsService;
-import kr.co.mayo.dreamon.service.admin.News.NewsSourceService;
+import kr.co.mayo.dreamon.service.admin.news.SourceService;
 
 //소스예제 : https://velog.io/@soyul2823/Spring-Boot-%EC%9E%90%EB%B0%94-%ED%81%AC%EB%A1%A4%EB%A7%81Crawling-Selenium
 @Controller
@@ -33,7 +33,7 @@ public class CrawlingController {
     private static int FILE_NUM = 0;
 
     @Autowired
-    private NewsSourceService newsSourceService;
+    private SourceService newsSourceService;
 
     @Autowired
     private NewsService newsService;
@@ -111,8 +111,11 @@ System.out.println("idxNo = " + idxNo);
 
                     //4.하단 출처관련 데이터
 
-                    // WebElement subDataElm = element.findElement(By.className("byline"));
-
+                    WebElement subDataElm = element.findElement(By.className("list-dated"));
+                    String writeData[] = subDataElm.getText().split("\\|");
+                    String catetgory = writeData[0];
+                    String writer    = writeData[1];
+                    String date      = writeData[2];
                     // // 하위 요소를 찾을 By 로케이터 정의
                     // By bySubDataElement = By.cssSelector("em");
 
@@ -129,7 +132,10 @@ System.out.println("idxNo = " + idxNo);
                     news.setTitle(title);
                     news.setLink(link);
                     news.setImgPath(imgPath);
+                    news.setWriter(writer);
                     news.setSummary(summary);
+                    news.setInfo(catetgory);
+                    news.setWriteDate(date);
                     list.add(news);
                     index++;
                 }

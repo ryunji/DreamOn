@@ -13,14 +13,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class News {
     
-    long id;
+    long   id;
     String idxNo;
-    Long newsSourceId;
-    int year;
+    Long   newsSourceId;
+    int    year;
     String title;
     String link;
     String imgPath;
     String summary;
-    Date regDate;
-    long newsCategoryId;
+    String writer;
+    String info;
+    String writeDate;
+    Date   regDate;
+    long   newsCategoryId;
 }

@@ -1,4 +1,4 @@
-package kr.co.mayo.dreamon.controller.admin.News;
+package kr.co.mayo.dreamon.controller.admin.news;
 
 import java.util.List;
 
@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import kr.co.mayo.dreamon.entity.NewsSource;
 import kr.co.mayo.dreamon.entity.ScheduleLog;
 import kr.co.mayo.dreamon.entity.Schedules;
-import kr.co.mayo.dreamon.service.admin.NewsCrawlingService;
 import kr.co.mayo.dreamon.service.admin.SchedulerService;
-import kr.co.mayo.dreamon.service.admin.News.NewsSourceService;
+import kr.co.mayo.dreamon.service.admin.news.CrawlingService;
+import kr.co.mayo.dreamon.service.admin.news.SourceService;
 
 @Controller
 @RequestMapping("admin/newsSource")
 public class SourceController {
     
     @Autowired
-    private NewsSourceService service;
+    private SourceService service;
 
     @RequestMapping("list")
     public String list(Model model){

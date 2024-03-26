@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import kr.co.mayo.dreamon.entity.NewsSource;
 import kr.co.mayo.dreamon.repository.NewsSourceRepository;
-import kr.co.mayo.dreamon.service.admin.News.NewsSourceService;
+import kr.co.mayo.dreamon.service.admin.news.SourceService;
 
 @Service
-public class NewsSourceServiceImpl implements NewsSourceService {
+public class SourceServiceImpl implements SourceService {
 
     @Autowired
     private NewsSourceRepository repository;
