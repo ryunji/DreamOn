@@ -1,9 +1,16 @@
 window.addEventListener("load", function(){
 
+    //var btnList = this.document.getElementById("#btn-list").getElementsByTagName("button");
+   // var regBtn  = btnList.getElementsByTagName("button");
+
+    //console.log("btnList : " , btnList);
+    var a = this.document.querySelector("#reg");
     //1.뉴스 Source Table 클릭 시 발생 이벤트.
     var newtilTable = document.querySelector(".n-table");
     newtilTable.onclick = function(e){
 
+        //regBtn[1].value ="수정하기";
+        a.textContent = "수정하기";
         var target      = e.target;
         var targetTagNm = target.tagName;
         if(targetTagNm != "TD")
