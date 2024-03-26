@@ -17,13 +17,9 @@ import kr.co.mayo.dreamon.service.admin.SchedulerService;
 @Controller
 @RequestMapping("admin/newsCrawling")
 public class NewsCrawlingController {
-    
-    
 
     @Autowired
     NewsCrawlingService newsCrawlingService;
-
-    
 
     @PostMapping("regist")
     public String regist(String name

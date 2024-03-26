@@ -6,9 +6,36 @@
 <!-- 구현하고자 하는 인터페이스의 전체 경로와 인터페이스 명을 네임스페이스에 적는다. -->  
 <mapper namespace="kr.co.mayo.dreamon.repository.NewsSourceRepository">
 
+    <!-- 1. 뉴스 데이터 조회 -->
     <select id="findAll" resultType="NewsSource">
       SELECT  *
         FROM NEWS_SOURCE
        WHERE USE_YN = 'Y'
     </select>
+
+  <!-- 2. 뉴스 테이블 Row 클릭 시 1행 반환 -->
+    <select id="findData" resultType="NewsSource">
+      SELECT  *
+        FROM NEWS_SOURCE
+       WHERE USE_YN = 'Y'
+         AND ID     = #{id} 
+    </select>
+
+    <insert id="insert">
+        /* 뉴스 Source insert - queryId : NewsSourceRepository.insert*/
+        INSERT INTO NEWS_SOURCE(  CODE
+                                , NAME
+                                , DOMAIN
+                                , URL
+                                , USE_YN
+                                , ADMIN_ID
+                                , REG_DATE)
+                          VALUES( #{code}
+                                , #{name}
+                                , #{domain}
+                                , #{url}
+                                , 'Y'
+                                , 1
+                                , now())
+    </insert>
 </mapper>

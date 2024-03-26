@@ -7,104 +7,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script src="/js/admin/newsSourceList.js"></script>
 </head>
 <body>
     <main layout:fragment="main">    
-      <div class="text-align:right">
-          <button type="button" class="n-btn n-btn:filled n-btn-size:2">초기화</button>
-          <button type="button" class="n-btn n-btn:filled n-btn-size:2">스케줄 실행</button>
-        </div> 
-        <section id="community" class="d:flex margin-right:auto margin-left:auto padding:10">
-            
-<div style="max-width: 80%;">
-            <h1 class="d:none">커뮤니티 게시글 목록</h1>
-            <div style="max-width: 80%;">
-              <h1 class="d:none">커뮤니티 게시글 목록</h1>
+      <section class="d:flex margin-left:auto margin-right:auto padding:10">      
+        <div >
+          <h1 class="d:none">뉴스 Source</h1>
+          <div>
+              <h1 class="d:none">뉴스 Source 목록</h1>
               <table class="n-table n-table-hover">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Last Login</th>
+                    <th scope="col">DOMAIN</th>
+                    <th scope="col">URL</th>
+                    <th scope="col">사용여부</th>
+                    <th scope="col">등록자</th>
+                    <th scope="col">등록일</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr th:each="list : ${list}">
-                    <th scope="row" th:text="${list.id}">1</th>
-                    <td th:text="${list.name}">Tom</td>
-                    <td th:text="${list.url}">male</td>
-                    <td>2020-11-01</td>
+               <!-- <th scope="row" th:text="${list.id}">1</th> -->
+                    <td th:data-id="${list.id}" th:text="${list.id}">1</td>     
+                    <td th:data-id="${list.id}" th:text="${list.name}">뉴스앤잡</td>
+                    <td th:data-id="${list.id}" th:text="${list.domain}">도메인</td>
+                    <td th:data-id="${list.id}" th:text="${list.url}">https://</td>
+                    <td th:data-id="${list.id}" th:text="${list.useYn}">사용</td>
+                    <td th:data-id="${list.id}" th:text="${list.id}">강윤지</td>
+                    <td th:data-id="${list.id}" th:text="${list.regDate}">2020-11-01</td>
                   </tr>
-                  <!-- <tr>
-                    <th scope="row">2</th>
-                    <td>Olivia</td>
-                    <td>female</td>
-                    <td>2021-03-01</td>
-                  </tr> -->
                 </tbody>
               </table>
-            </div>
-            <div>
-       
+          </div>
+        </div>
+        <form action="regist" method="post" class="n-form min-width:10 margin-left:5">
+          <h1 class="n-font:h3 font-weight:3 text-align:center">✏️뉴스 Source 등록</h1>
+          <div>
+            <label>
+              <span>ID</span>
+              <input type="text" name="id"     value="" placeholder="ID는 자동생성 됩니다" />
+            </label>
           </div>
           <div>
-            <form action="regist" method="post" class="n-form n-field-label-position:left">
-              <h1 class="n-font:h3 font-weight:3">스케줄러 등록</h1>
-              <div>
-                <label>
-                  <span>스케쥴명</span>
-                  <input type="text" name="name" placeholder="작성자명을 입력해주세요" />
-                </label>
-              </div>
-              <div>
-                <label>
-                  <span>URL</span>
-                  <input type="text" name="url" placeholder="URL을 등록해주세요." />
-                </label>
-              </div>     
-              <div>
-                <label>
-                  <span>리뷰 공개 여부</span>
-                  <input type="checkbox" class="n-toggle" />
-                </label>
-              </div>
-              <div>
-                <button class="n-btn">등록하기</button>
-              </div>
-            </form>
+            <label>
+              <span>CODE</span>
+              <input type="text" name="code"   value="" placeholder="CODE를 입력해주세요" />
+            </label>
+          </div>  
+          <div>
+            <label>
+              <span>NAME</span>
+              <input type="text" name="name"   value="" placeholder="스케줄 JOB 이름을 입력해주세요" />
+            </label>
+          </div>     
+          <div>
+            <label>
+              <span>DOMAIN</span>
+              <input type="text" name="domain" value="" placeholder="도메인을 입력해주세요" />
+            </label>
+          </div>    
+          <div>
+            <label>
+              <span>URL</span>
+              <input type="text" name="url"    value="" placeholder="URL을 입력해주세요" />
+            </label>
+          </div>     
+          <div>
+            <label>
+              <span>사용여부</span>
+              <input type="checkbox" class="n-toggle" />
+            </label>
           </div>
-        </section>
-
-        <!-- <section id="community" class="margin-right:auto margin-left:auto padding:10">
-            
-          <div class="text-align:right">
-              <button type="button" class="n-btn n-btn:filled n-btn-size:2">로그삭제</button>
-    
-            </div> 
-            <table class="n-table n-table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">JOB_NAME</th>
-                  <th scope="col">CODE</th>
-                  <th scope="col">STATUS</th>
-                  <th scope="col">MESSAGE</th>
-                  <th scope="col">EXCUTION_TIME</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr th:each="logList : ${logList}">
-                  <th scope="row" th:text="${logList.id}">1</th>
-                  <td th:text="${logList.jobName}">Tom</td>
-                  <td th:text="${logList.code}">male</td>
-                 <td th:text="${logList.status}">2020-11-01</td>
-                 <td th:text="${logList.message}">2020-11-01</td>
-                 <td th:text="${logList.excutionTime}">2020-11-01</td>
-                </tr>
-              </tbody>
-            </table>
-      </section> -->
+          <div id="btn-list" class="d:flex flex-direction:row justify-content:center">
+            <button id="ini" type="reset" class="n-btn">초기화</button>
+            <button id="reg" type="submit" class="n-btn">등록하기</button>
+          </div>
+        </form>
+      </section>
     </main>
 </body>
 </html>
