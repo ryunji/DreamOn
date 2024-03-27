@@ -10,7 +10,8 @@ window.addEventListener("load", function(){
     newtilTable.onclick = function(e){
 
         //regBtn[1].value ="수정하기";
-        a.textContent = "수정하기";
+        //a.textContent = "수정하기";
+        a.style= "";
         var target      = e.target;
         var targetTagNm = target.tagName;
         if(targetTagNm != "TD")

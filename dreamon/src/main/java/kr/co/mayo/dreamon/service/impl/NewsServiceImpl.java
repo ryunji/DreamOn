@@ -72,6 +72,10 @@ public class NewsServiceImpl implements NewsService{
                     map.put("title",          temp.getTitle());
                     map.put("imgPath",        temp.getImgPath());
                     map.put("summary",        temp.getSummary());
+                    map.put("writer",         temp.getWriter());
+                    map.put("writer",         temp.getWriter());
+                    map.put("info",           temp.getInfo());
+                    map.put("writeDate",      temp.getWriteDate());
                     map.put("newsCategoryId", 4);
                     repository.saveNewsData(map);
                 }

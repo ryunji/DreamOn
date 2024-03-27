@@ -35,14 +35,33 @@
                 </nav> -->
                 <section style="width: 50%;" class="" >
                     <h1 class="d:none">이름 검색 폼</h1>
-                    <form style="background-color: #06A3DA" class="n-form n-form-type:underline" action="list" method="get">
+                    <form action="list" method="get" class="d-flex justify-content:center">
+                        <fieldset style="box-sizing: border-box;
+                        width: 500px;
+                        height: 40px;
+                        border-radius: 20px;
+                        background-color: var(--color-base-0);
+                        padding: 5px 10px;
+                        display: flex;
+                        align-items: center;
+                        border: 1px solid red;">
+                            <legend class="d:none">이름 검색</legend>
+                            <input style="text-align: center;
+                            font-weight: bold;
+                            flex-grow: 1    ;" class="query-input" type="text" placeholder="뉴스 검색" name="q"> <!--get요청이기 때문에 파라미터 축약-->
+                            <!-- <input id="query-input" type="text" placeholder="메뉴 검색" name="q">-->
+                            <!-- <input type="hidden" name="c" value="" th:value="${{param.c}}" >  -->
+                            <button class="icon icon:magnifying_glass">검색</button>
+                        </fieldset>
+                    </form>
+                    
+                    <!-- <form style="background-color: #06A3DA" class="n-form n-form-type:underline" action="list" method="get">
                         <fieldset class="d:flex justify-content:center">
                             <span class="d:none">뉴스 검색</span>
                             <legend class="d:none">뉴스 검색</legend>
                             <input class="box-sizing:border-box" type="text" placeholder="뉴스 검색" name="q">
-                            <button class="icon icon:magnifying_glass">검색</button>
                         </fieldset>
-                    </form>
+                    </form> -->
                 </section>
             </section>
 
@@ -92,10 +111,16 @@
                                 스크랩
                             </button>
                         </div>
-                        <p th:text="${news.summary}" class="font-size:1">
+                        <div>
+                        <p th:text="${news.summary}" class="font-size:3">
                             뉴스 요약 내용
                         </p>
-                        <div><span th:text="${news.info}"></span>|<span th:text="${news.writeDate}"></span>|<span></span></div>
+                        </div>
+                        <div class="text-align:right">
+                            <span th:text="${news.info}"></span>|
+                            <span th:text="${news.writeDate}"></span> |
+                            <span th:text="${news.writer}"></span>
+                        </div>
                     </div>
                 </article>
             </div>    

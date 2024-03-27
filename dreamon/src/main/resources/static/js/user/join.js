@@ -144,6 +144,24 @@ window.addEventListener("load", function(e){
         }    
 
     }//failValidated
+
+
+
+    //저장 버튼 클릭 시 
+    function aa(){
+
+        var nm = "b"
+        var ns = "a";
+        var isall = nm && ns; 
+        if(isall){
+
+        }
+        //form.SubmitEvent;
+    }
+
+
+
+
 })//window.addEventListener 이벤트 영역 종료.
 
  /*var html   = "<p>이름은 23글자를 넘길 수 없습니다.</p>";
