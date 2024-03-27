@@ -7,20 +7,28 @@
 <mapper namespace="kr.co.mayo.dreamon.repository.NewsSourceRepository">
 
     <!-- 1. 뉴스 데이터 조회 -->
-    <select id="findAll" resultType="NewsSource">
+    <!-- <select id="findAll" resultType="NewsSource">
       SELECT  *
         FROM NEWS_SOURCE
        WHERE USE_YN = 'Y'
          AND ID     = 1
+    </select> -->
+
+    <select id="findAll" resultType="NewsSource">
+      SELECT  *
+        FROM NEWS_SOURCE_VIEW
+       WHERE ID     = 1
     </select>
+       <!-- WHERE USE_YN = 'Y' -->
+
 
   <!-- 2. 뉴스 테이블 Row 클릭 시 1행 반환 -->
     <select id="findData" resultType="NewsSource">
       SELECT  *
         FROM NEWS_SOURCE
-       WHERE USE_YN = 'Y'
-         AND ID     = #{id} 
+        WHERE ID     = #{id} 
     </select>
+       <!-- WHERE USE_YN = 'Y' -->
 
     <insert id="insert">
         /* 뉴스 Source insert - queryId : NewsSourceRepository.insert*/
@@ -38,5 +46,19 @@
                                 , 'Y'
                                 , 1
                                 , now())
+    </insert>
+    
+    <insert id="update">
+        /* 뉴스 Source insert - queryId : NewsSourceRepository.insert*/
+        UPDATE NEWS_SOURCE
+           SET    CODE     = #{code}
+                , NAME     = #{name}
+                , DOMAIN   = #{domain}
+                , URL      = #{url}
+                , ADMIN_ID = 1
+                , USE_YN   = #{useYn}
+                , UPT_ID   = 1
+                , UPT_DATE = now()
+          WHERE   ID       = #{id}  
     </insert>
 </mapper>

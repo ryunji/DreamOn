@@ -26,6 +26,7 @@ public class SourceController {
     public String list(Model model){
 
         List<NewsSource> list = service.getList();
+System.out.println("News Source List : " + list);        
         model.addAttribute("list",    list);
         return "admin/newsSource/list";
     }
@@ -38,9 +39,23 @@ public class SourceController {
                        , String useYn  //사용여부
                        ){
 
-System.out.println("asdfasdfasdfasdf");
-
       service.saveSource(code, name, domain, url, useYn);
+      return "redirect:/admin/newsSource/list";
+    }
+
+    @PostMapping("modify")
+    public String modify(Long   id       //ID
+                       , String code   //코드
+                       , String name   //서비스명
+                       , String domain //도메인
+                       , String url    //source url
+                       , String useYn  //사용여부
+                       ){
+
+      //Long keyId = (long) 1;//id;
+                        System.out.println("id : " + id);
+                        System.out.println("code : " + code);
+      service.updateSource(id, code, name, domain, url, useYn);
       return "redirect:/admin/newsSource/list";
     }
 }

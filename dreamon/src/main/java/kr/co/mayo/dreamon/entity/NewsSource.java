@@ -19,6 +19,8 @@ public class NewsSource {
     String domain;
     String url;
     String useYn;
+    String useYnNm;
+    String register;
     Long   adminId;
     Date   regDate;
 }

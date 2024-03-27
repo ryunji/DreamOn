@@ -492,7 +492,8 @@ h6,
 }
 
 
-.btn-modify{
 
-    display: none;
-}
+
+
+
+@import url("./component/button.css");

@@ -36,4 +36,12 @@ public class SourceServiceImpl implements SourceService {
     
         repository.insert(code, name, domain, url, useYn);
     }
+
+    @Override
+    public void updateSource(Long id, String code, String name, String domain, String url, String useYn) {
+        
+        System.out.println("여기 안 오나?");
+        System.out.println("여기 안 오나? id : " + id);
+        repository.update(id, code, name, domain, url, useYn);
+    }
 }

@@ -36,15 +36,16 @@
                     <td th:data-id="${list.id}" th:text="${list.name}">뉴스앤잡</td>
                     <td th:data-id="${list.id}" th:text="${list.domain}">도메인</td>
                     <td th:data-id="${list.id}" th:text="${list.url}">https://</td>
-                    <td th:data-id="${list.id}" th:text="${list.useYn}">사용</td>
-                    <td th:data-id="${list.id}" th:text="${list.id}">강윤지</td>
+                    <td class="d:none" th:data-id="${list.id}" th:text="${list.useYn}">사용</td>
+                    <td th:data-id="${list.id}" th:text="${list.useYnNm}">사용</td>
+                    <td th:data-id="${list.id}" th:text="${list.register}">강윤지</td>
                     <td th:data-id="${list.id}" th:text="${list.regDate}">2020-11-01</td>
                   </tr>
                 </tbody>
               </table>
           </div>
         </div>
-        <form action="regist" method="post" class="n-form min-width:10 margin-left:5">
+        <form action="" method="post" class="n-form min-width:10 margin-left:5">
           <h1 class="n-font:h3 font-weight:3 text-align:center">✏️뉴스 Source 등록</h1>
           <div>
             <label>
@@ -79,13 +80,14 @@
           <div>
             <label>
               <span>사용여부</span>
-              <input type="checkbox" class="n-toggle" />
+              <input
+                      type="checkbox" name="use-yn" class="n-toggle" />
             </label>
           </div>
           <div id="btn-list" class="d:flex flex-direction:row justify-content:center">
             <button type="reset"  class="n-btn btn-initial">초기화</button>
             <button type="submit" class="n-btn btn-regist">등록하기</button>
-            <button type="submit" class="n-btn btn-modify">수정하기</button>
+            <button type="submit" class="n-btn btn-modify d:none">수정하기</button>
           </div>
         </form>
       </section>
