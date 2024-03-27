@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<!-- 클래식 에디터 -->
+	<!-- CDN 방식 : <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script> -->
+	<script src="/ckeditor/ckeditor.js"></script>
+	<script src="/ckeditor/ko.js"></script>
+	<title>Home</title>
+	
+	<!-- 넓이 높이 조절 -->
+	<style>
+	.ck.ck-editor {
+    	max-width: 500px;
+	}
+	.ck-editor__editable {
+	    min-height: 300px;
+	}
+	</style>
+</head>
+<main layout:fragment="main">
+   
+	<seciton class="margin-top:10 d-flex flex-direction:column justify-content:center">
+		<div class="max-width:5">
+		<button onclick="uploadData()" type="button" class="n-btn n-btn:filled n-btn-size:2">게시글 등록</button>
+		
+		</div>
+		<form class="n-form n-form-type:outline-box">
+			<div>
+			  <label>
+				<span>type</span>
+				<input type="text" placeholder="placeholder"/>
+			  </label>
+			</div>
+			<div>
+			  <label>
+				<span>label</span>
+				<input type="text" placeholder="placeholder" />
+			  </label>
+			</div>
+		  </form>
+	
+	
+	
+	
+	
+	
+	
+		<h1>Classic editor</h1>
+		<div id="classic">
+			<p></p>
+		</div>
+
+	</seciton>
+<script>
+	var editor;
+	ClassicEditor.create( document.querySelector( '#classic' ))
+				 .then(newEditor =>{
+					editor = newEditor;
+				 })				
+	.catch( error => {
+					
+					console.error( error );
+					} );
+		
+function uploadData() {
+	const editorData = editor.getData();
+	console.log(typeof(editorData));
+	
+	var xhr = new XMLHttpRequest();
+	
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState==4&&xhr.status==200) {
+			console.log("SDfsdf");
+		}
+	}
+	
+	xhr.open("post", "/api/community/regist", true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+	xhr.send("editorData="+editorData);
+}
+
+</script>
+	   </main> 
+</html>
+<!-- 참고 사이트 : https://tyrannocoding.tistory.com/67 -->

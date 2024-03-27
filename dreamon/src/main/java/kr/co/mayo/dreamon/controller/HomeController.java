@@ -9,9 +9,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/")
 public class HomeController {
     
-    @GetMapping("Home")
+    @GetMapping("home")
     public String index(){
 
         return "index";
+    }
+
+    @GetMapping("inquiry")
+    public String inquiry(){
+
+        return "/home/inquiry";
     }
 }

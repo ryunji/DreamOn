@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+    <!-- <script src="/js/news/list.js"></script> -->
+</head>      
+    <main layout:fragment="main">
+        
+        <!-- 19강 : 헤더외에 다른 부수적인 정보가 들어갈 때, 컨텐트 말고(ex : 전체명소, 더 보기 )-->
+        <!-- 헤더는 섹션 태그가 아니며 여기는 헤더 영역이에요를 알리는 것, header의 섹션은 body : HTML 19강-->
+        <!-- 영상 기준에서 Rland는 헤더 영역에 있었음.
+             내 코드 상에서는 Mayo가 제일 큰 제목이 될듯. -->
+        <!-- 헤더라는 태그는 섹션 마다 가지고 있을 수 있음. -->     
+        <header>
+        </header>
+        
+        <!-- div : card list(카드 아이템을 감싸고 있는 전체 영역) -->
+        <div class="padding:10"> 
+            
+            <section class="menu-filter d:flex justify-content:right">
+                <h1 class="d:none">뉴스 검색</h1>
+                    <button type="button" class="n-btn n-btn:filled n-btn-size:2">게시글 등록</button>
+                
+                
+                <!-- <nav class="category-filter">
+                    <h1 class="d:none">카테고리 검색 메뉴 목록</h1>
+                    <ul>
+                        <li><a class="sm:deco current md:deco sm:icon-filter_list" href="">전체기사</a></li>
+                        <li><a class="d:none md:d:inline" href="">창업뉴스</a></li>
+                        <li><a class="d:none md:d:inline" href="">창업트렌드</a></li>
+                        <li><a class="d:none md:d:inline" href="">샌드위치</a></li>
+                        <li><a class="d:none md:d:inline" href="">쿠키</a></li>
+                    </ul>
+                </nav> -->
+                <section style="width: 50%;" class="" >
+                    
+                </section>
+            </section>
+
+            <div class="margin-left:auto margin-right:auto max-width:20 margin-top:5 d:flex justify-content-between">
+                <div >
+                    <span class="deco deco-size:2 icon:push_pin_fill margin-left:1">기사(전체 : <span class="margin-left:1" th:text="${count}">1</span>건)
+                </div>
+                <!-- 뉴스 검색 폼 : 검색 필터 영역 -->
+                <div>
+                    <ul class="w:full d:flex jc:center gap:4">
+                        <li>
+                          <label class="font-size:2 font-weight:1">
+                            제목
+                            <input type="radio" class="n-toggle n-toggle-type:dot" name="filter" />
+                          </label>
+                        </li>
+                        <li>
+                          <label class="font-size:2 font-weight:1">
+                            제목 + 컨텐츠
+                            <input type="radio" class="n-toggle n-toggle-type:dot" name="filter" />
+                          </label>
+                        </li>
+                      </ul>
+                </div>    
+            </div>
+
+            
+        
+    
+        </seciton>
+    </main>   
+</html>
